@@ -1,7 +1,3 @@
-<p align="center">
-  <img src="public/assets/Logo.svg" height="80" alt="ABensalah logo" />
-</p>
-
 <h1 align="center">Ahmed Bensalah — Portfolio</h1>
 
 <p align="center">
