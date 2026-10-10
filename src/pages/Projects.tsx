@@ -222,9 +222,9 @@ const Projects = ({ limit }: { limit?: number }) => {
                   ) : (
                     <span />
                   )}
-                  {project.live && (
+                  {project.demo && (
                     <a
-                      href={project.live}
+                      href={project.demo}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-sm font-black text-blue-500 hover:text-blue-400 transition-colors uppercase tracking-widest"

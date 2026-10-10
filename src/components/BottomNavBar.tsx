@@ -89,11 +89,11 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                 className={`relative flex items-center justify-center p-3 sm:p-4 rounded-2xl transition-all duration-300 group ${
                   isActive
                     ? isLight
-                      ? "text-blue-600 bg-blue-50/80"
-                      : "text-blue-500 bg-white/10"
+                      ? "text-blue-600 bg-blue-100/70"
+                      : "text-blue-400 bg-blue-500/15"
                     : isLight
-                    ? "text-slate-500 hover:text-slate-900 hover:bg-slate-100/70"
-                    : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
+                    ? "text-slate-400 hover:text-blue-600 hover:bg-blue-50/60"
+                    : "text-zinc-500 hover:text-blue-400 hover:bg-blue-500/10"
                 }`}
               >
                 <div className="flex items-center gap-2">
