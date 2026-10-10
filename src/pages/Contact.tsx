@@ -1,10 +1,15 @@
 import { motion } from "framer-motion";
-import { contactItems, resume } from "../data/userData";
+import { contactItems, resume, uiTranslations } from "../data/userData";
 import { ArrowUpRight } from "lucide-react";
+import { usePortfolio } from "../context/PortfolioContext";
 
 const Contact = () => {
+  const { lang, theme } = usePortfolio();
+  const t = uiTranslations[lang].contact;
+  const isLight = theme === "light";
+
   return (
-    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen text-foreground relative z-10 scroll-mt-32">
+    <section id="contact" className="w-full flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 pt-32 pb-48 min-h-screen relative z-10 scroll-mt-32">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,17 +22,21 @@ const Contact = () => {
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 text-white tracking-tighter"
+            className={`text-3xl md:text-5xl lg:text-6xl font-black mb-6 tracking-tighter ${
+              isLight ? "text-slate-900" : "text-white"
+            }`}
           >
-            Get In Touch
+            {t.title}
           </motion.h2>
           <motion.p
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.5 }}
-            className="text-base md:text-lg lg:text-xl text-zinc-500 max-w-2xl mx-auto font-medium"
+            className={`text-base md:text-lg lg:text-xl max-w-2xl mx-auto font-medium ${
+              isLight ? "text-slate-600" : "text-zinc-500"
+            }`}
           >
-            Let's build something great together. I'm always open to new opportunities and collaborations.
+            {t.subtitle}
           </motion.p>
         </div>
 
@@ -39,37 +48,45 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="text-left space-y-4"
           >
-            <h3 className="text-3xl md:text-5xl font-black leading-tight text-white tracking-tighter">
-              Let’s build <span className="text-blue-600 text-glow">better</span> products.
+            <h3
+              className={`text-3xl md:text-5xl font-black leading-tight tracking-tighter ${
+                isLight ? "text-slate-900" : "text-white"
+              }`}
+            >
+              {t.heading} <span className="text-blue-600 text-glow">{t.headingHighlight}</span>.
             </h3>
 
-            <p className="text-lg md:text-2xl text-zinc-400 font-medium max-w-md leading-relaxed">
-              Open for interesting opportunities or just a meaningful chat.
+            <p
+              className={`text-lg md:text-2xl font-medium max-w-md leading-relaxed ${
+                isLight ? "text-slate-600" : "text-zinc-400"
+              }`}
+            >
+              {t.subheading}
             </p>
 
             {/* CTA BUTTONS */}
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap gap-2 pt-2">
               <a
-                href="mailto:bensalahahmed8603@gmail.com"
-                className="px-6 py-3.5 rounded-full bg-white text-black font-black text-base transition-all duration-300 hover:bg-zinc-200 hover:-translate-y-1 flex items-center gap-2 group"
+                href="mailto:ahmad.bensalah.contact@gmail.com"
+                className={`px-6 py-3.5 rounded-full font-black text-base transition-all duration-300 hover:-translate-y-1 flex items-center gap-2 group ${
+                  isLight
+                    ? "bg-slate-900 text-white hover:bg-slate-800 shadow-sm"
+                    : "bg-white text-black hover:bg-zinc-200"
+                }`}
               >
-                Start a Conversation
+                {t.startConversation}
               </a>
               <a
-                href={resume.en}
+                href={lang === "fr" ? resume.fr : resume.en}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-white border border-white/10 rounded-full font-black text-base hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
+                className={`inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-black text-base hover:-translate-y-1 transition-all duration-300 border ${
+                  isLight
+                    ? "border-slate-300 text-slate-800 bg-white/80 hover:bg-slate-100"
+                    : "border-white/10 text-white hover:bg-white/5"
+                }`}
               >
-                CV (EN) <ArrowUpRight size={18} />
-              </a>
-              <a
-                href={resume.fr}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3.5 text-white border border-white/10 rounded-full font-black text-base hover:bg-white/5 hover:-translate-y-1 transition-all duration-300"
-              >
-                CV (FR) <ArrowUpRight size={18} />
+                {t.resume} <ArrowUpRight size={18} />
               </a>
             </div>
           </motion.div>
@@ -88,23 +105,47 @@ const Contact = () => {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.1 * i, duration: 0.4 }}
-                  className="group p-5 rounded-3xl border border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04] transition-all duration-500 flex items-center gap-5 w-full"
+                  className={`group p-5 rounded-3xl border transition-all duration-500 flex items-center gap-5 w-full ${
+                    isLight
+                      ? "border-slate-200 bg-white/75 hover:bg-white hover:border-blue-400 shadow-sm hover:shadow-md"
+                      : "border-white/5 bg-white/[0.02] hover:border-blue-500/30 hover:bg-white/[0.04]"
+                  }`}
                 >
-                  <div className="p-3 rounded-2xl bg-white/5 border border-white/5 group-hover:scale-110 transition-transform duration-500">
-                    <Icon className="text-zinc-400 group-hover:text-blue-500 transition-colors" size={20} />
+                  <div
+                    className={`p-3 rounded-2xl border group-hover:scale-110 transition-transform duration-500 ${
+                      isLight
+                        ? "bg-slate-100 border-slate-200 text-slate-600"
+                        : "bg-white/5 border-white/5 text-zinc-400"
+                    }`}
+                  >
+                    <Icon className="group-hover:text-blue-500 transition-colors" size={20} />
                   </div>
 
                   <div className="flex-1 flex flex-col items-start text-left">
-                    <p className="font-black text-zinc-500 uppercase tracking-widest text-[10px] mb-1">
+                    <p
+                      className={`font-black uppercase tracking-widest text-[10px] mb-1 ${
+                        isLight ? "text-slate-500" : "text-zinc-500"
+                      }`}
+                    >
                       {label}
                     </p>
-                    <p className="text-base font-bold text-white group-hover:text-blue-500 transition-colors truncate w-full">
+                    <p
+                      className={`text-base font-bold transition-colors truncate w-full ${
+                        isLight
+                          ? "text-slate-900 group-hover:text-blue-600"
+                          : "text-white group-hover:text-blue-500"
+                      }`}
+                    >
                       {value}
                     </p>
                   </div>
 
                   {href && (
-                    <div className="text-zinc-600 group-hover:text-white transition-all duration-300">
+                    <div
+                      className={`transition-all duration-300 ${
+                        isLight ? "text-slate-400 group-hover:text-slate-900" : "text-zinc-600 group-hover:text-white"
+                      }`}
+                    >
                       <ArrowUpRight size={20} className="opacity-0 group-hover:opacity-100 transition-opacity" />
                     </div>
                   )}

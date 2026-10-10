@@ -5,6 +5,8 @@ import { getCommandData } from "./CommandData";
 import { isGlowCommand, isValidCommand } from "./data/commands";
 import { terminalThemes } from "./data/themes";
 
+import { usePortfolio } from "../context/PortfolioContext";
+
 type Line = {
   text?: string;
   type?: "info" | "error" | "success";
@@ -17,10 +19,11 @@ type Props = {
 };
 
 const TerminalMode = ({ setTerminalMode, setUiType }: Props) => {
+  const { lang } = usePortfolio();
   const [history, setHistory] = useState<Line[]>([]);
   const [input, setInput] = useState("");
   const [glow, setGlow] = useState(false);
-  const commandData = getCommandData(setTerminalMode);
+  const commandData = getCommandData(setTerminalMode, lang);
   const [commandHistory, setCommandHistory] = useState<string[]>(() => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("terminalHistory");

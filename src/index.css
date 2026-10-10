@@ -9,6 +9,28 @@
   --primary: #3b82f6;
   --muted: #a1a1aa;
   --border: #18181b;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.08);
+}
+
+html.light {
+  --background: #f8fafc;
+  --foreground: #09090b;
+  --primary: #2563eb;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: rgba(0, 0, 0, 0.08);
+}
+
+html.dark {
+  --background: #050505;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --muted: #a1a1aa;
+  --border: #18181b;
+  --card-bg: rgba(255, 255, 255, 0.02);
+  --card-border: rgba(255, 255, 255, 0.08);
 }
 
 body {
@@ -16,14 +38,8 @@ body {
   color: var(--foreground);
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
-
-.dark {
-  --background: #050505;
-  --foreground: #ffffff;
-  --primary: #3b82f6;
-}
-
 
 @keyframes reveal {
   0% {
@@ -91,16 +107,43 @@ html {
 
 .no-scrollbar {
   -ms-overflow-style: none;
-  /* IE/Edge */
   scrollbar-width: none;
-  /* Firefox */
 }
 
+/* ── Custom scrollbar (dark mode default) ───────────────────────── */
 ::-webkit-scrollbar {
-  display: none;
+  width: 6px;
 }
 
-/* Only apply hover effects at 768px and above (md breakpoint) */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.35);
+  border-radius: 999px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.7);
+}
+
+/* Light mode scrollbar */
+html.light ::-webkit-scrollbar-thumb {
+  background: rgba(37, 99, 235, 0.3);
+}
+
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(37, 99, 235, 0.6);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.35) transparent;
+}
+
 @media (hover: hover) and (pointer: fine) {
   .hover-shadow-on-desktop:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);

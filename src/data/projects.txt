@@ -1,0 +1,104 @@
+# ==============================================================================
+# AHMED BENSALAH - PROJECTS DATA FILE (PROJECTS.TXT)
+# ==============================================================================
+# You can edit, add, or delete projects directly in this file.
+# Each project starts with: [PROJECT]
+# Fields:
+#   category : DevOps | MLOps | Cloud & IaC | Data & Software
+#   featured : yes | no   (shows a ⭐ star badge on the card)
+#   tech     : comma-separated technologies (e.g. Docker, Kubernetes, Python)
+#   github   : GitHub repository URL (leave empty if none)
+#   demo     : YouTube / live demo URL (shows YouTube logo if youtube.com link)
+#   name_en  : English project title
+#   desc_en  : English project description
+#   name_fr  : French project title
+#   desc_fr  : French project description
+# ==============================================================================
+
+[PROJECT]
+category: DevOps
+featured: yes
+tech: Vagrant, Ansible, Hadoop, IaC
+github: https://github.com/ahmad-bensalah/Hadoop_HA_IaC
+demo: 
+name_en: Automated Big Data Cluster (IaC)
+desc_en: Provisioned a 3-node Hadoop 3.3.6 cluster using IaC principles for rapid, reproducible deployment.
+name_fr: Cluster Big Data Automatisé (IaC)
+desc_fr: Déploiement d'un cluster Hadoop 3.3.6 à 3 nœuds basé sur les principes de l'IaC pour un provisionnement rapide et reproductible.
+
+[PROJECT]
+category: DevOps
+featured: yes
+tech: Jenkins, Docker, Traefik, Kyverno, ArgoCD
+github: https://github.com/ahmad-bensalah/CI-CD_K8S_Jenkins
+demo: 
+name_en: Kubernetes CI/CD Pipeline
+desc_en: Automated end-to-end deployment with Traefik Ingress and Kyverno admission control for cluster security.
+name_fr: Pipeline CI/CD Kubernetes
+desc_fr: Déploiement automatisé de bout en bout avec Traefik Ingress et contrôle d'admission Kyverno pour la sécurité du cluster.
+
+[PROJECT]
+category: MLOps
+featured: no
+tech: Kubernetes, FastAPI, Longhorn, Python
+github: 
+demo: 
+name_en: Mission Control
+desc_en: Built an HPC governance layer for K8s with "Hot-Enforcement" policy sync and REST API storage scaling.
+name_fr: Mission Control
+desc_fr: Couche de gouvernance HPC pour K8s avec synchronisation des politiques en temps réel et dimensionnement de stockage via API REST.
+
+[PROJECT]
+category: MLOps
+featured: yes
+tech: BiLSTM, Mediapipe, TTS, STT, Python
+github: https://github.com/ahmad-bensalah/SignBridge
+demo: 
+name_en: SignBridge
+desc_en: An AI-driven platform enabling two-way translation between Tunisian Dialect and Tunisian Sign Language.
+name_fr: SignBridge
+desc_fr: Plateforme basée sur l'IA assurant la traduction bidirectionnelle entre le dialecte tunisien et la langue des signes tunisienne.
+
+[PROJECT]
+category: DevOps
+featured: no
+tech: Jenkins, ArgoCD, SonarQube, Kubernetes
+github: 
+demo: 
+name_en: DevSecOps Pipeline
+desc_en: Built a DevSecOps pipeline for K8s using Jenkins, ArgoCD, and SonarQube for automated security scanning.
+name_fr: Pipeline DevSecOps
+desc_fr: Mise en place d'un pipeline DevSecOps pour K8s avec Jenkins, ArgoCD et SonarQube pour des audits de sécurité automatisés.
+
+[PROJECT]
+category: MLOps
+featured: yes
+tech: RAG, LLM, Python, LangChain
+github: https://github.com/ahmad-bensalah/Tunisian_Agentic_RAG
+demo: 
+name_en: Tunisian Agentic RAG
+desc_en: An agentic Retrieval-Augmented Generation system built for Tunisian dialect Arabic, enabling context-aware conversational AI.
+name_fr: RAG Agentique Tunisien
+desc_fr: Système de génération augmentée par récupération (RAG) agentique conçu pour le dialecte tunisien, offrant une IA conversationnelle contextuelle.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: Django, Angular, Python, Cosine Similarity
+github: 
+demo: 
+name_en: Recommendation Engine
+desc_en: Engineered a recommendation engine using Cosine Similarity with an Angular/Django architecture.
+name_fr: Moteur de Recommandation
+desc_fr: Conception d'un moteur de recommandation basé sur la similarité cosinus avec une architecture moderne Angular/Django.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: IoT, Embedded, Python, MQTT
+github: 
+demo: 
+name_en: Smart Leak Detection
+desc_en: Developed smart leak detection systems using real-time sensor data monitoring and embedded platforms.
+name_fr: Détection Intelligente de Fuites
+desc_fr: Système intelligent de détection de fuites basé sur la surveillance de flux de données de capteurs en temps réel et IoT.

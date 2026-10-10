@@ -1,7 +1,8 @@
 "use client";
 import { Send } from "lucide-react";
 import { motion } from "framer-motion";
-import { personalInfo, contactItems } from "../data/userData";
+import { personalInfoByLang, contactItems, uiTranslations } from "../data/userData";
+import { usePortfolio } from "../context/PortfolioContext";
 
 type HeroProps = {
   onTabChange?: (tab: string) => void;
@@ -9,17 +10,26 @@ type HeroProps = {
 };
 
 const Hero = ({ onTabChange, uiType }: HeroProps) => {
+  const { lang, theme } = usePortfolio();
+  const personalInfo = personalInfoByLang[lang];
+  const t = uiTranslations[lang].hero;
+  const isLight = theme === "light";
+
   return (
     <motion.section
       id="home"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-24 pb-20 scroll-mt-20"
+      className="min-h-[90vh] w-full max-w-6xl mx-auto flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 gap-12 lg:gap-16 relative z-10 pt-28 pb-20 scroll-mt-20"
     >
       {/* Background Branding */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-70">
-        <span className="text-[18rem] md:text-[28rem] font-black text-white/[0.09] select-none tracking-[-0.07em]">
+        <span
+          className={`text-[18rem] md:text-[28rem] font-black select-none tracking-[-0.07em] transition-colors duration-500 ${
+            isLight ? "text-slate-900/[0.04]" : "text-white/[0.09]"
+          }`}
+        >
           {personalInfo.shortAlias}
         </span>
       </div>
@@ -32,7 +42,11 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-bold uppercase tracking-widest"
+            className={`inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-sm font-bold uppercase tracking-widest transition-colors ${
+              isLight
+                ? "bg-blue-50 border border-blue-200 text-blue-700"
+                : "bg-blue-500/10 border border-blue-500/20 text-blue-400"
+            }`}
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -46,10 +60,16 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease: "circOut" }}
-            className="text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter text-white"
+            className={`text-4xl sm:text-6xl lg:text-8xl font-black leading-[0.9] tracking-tighter ${
+              isLight ? "text-slate-900" : "text-white"
+            }`}
           >
             <span className="block">{personalInfo.name}</span>
-            <span className="block text-zinc-500 text-3xl sm:text-5xl lg:text-7xl">
+            <span
+              className={`block text-3xl sm:text-5xl lg:text-7xl transition-colors ${
+                isLight ? "text-slate-500" : "text-zinc-500"
+              }`}
+            >
               {personalInfo.role}
             </span>
           </motion.h1>
@@ -59,7 +79,9 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-lg md:text-xl text-zinc-400 leading-relaxed max-w-lg"
+            className={`text-lg md:text-xl leading-relaxed max-w-lg ${
+              isLight ? "text-slate-600" : "text-zinc-400"
+            }`}
           >
             {personalInfo.aboutText}
           </motion.p>
@@ -84,9 +106,13 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-white text-black font-black text-base hover:bg-zinc-100 active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-white/10"
+              className={`flex-1 sm:flex-none px-6 py-3.5 rounded-full font-black text-base active:scale-95 transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl ${
+                isLight
+                  ? "bg-slate-900 text-white hover:bg-slate-800 shadow-slate-900/10"
+                  : "bg-white text-black hover:bg-zinc-100 shadow-white/10"
+              }`}
             >
-              Selected Works
+              {t.selectedWorks}
             </a>
 
             <a
@@ -100,16 +126,16 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20"
+              className="flex-1 sm:flex-none px-6 py-3.5 rounded-full bg-blue-600 hover:bg-blue-700 text-white font-black text-base transition-all duration-300 flex items-center justify-center gap-2 group shadow-xl shadow-blue-500/20 active:scale-95"
             >
-              Get in Touch
+              {t.getInTouch}
               <Send className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={18} />
             </a>
           </div>
 
           {/* Social Icons */}
           <div className="flex items-center gap-6 sm:gap-5 pt-2 sm:pt-0">
-            <div className="h-5 w-px bg-white/10 hidden sm:block" />
+            <div className={`h-5 w-px hidden sm:block ${isLight ? "bg-slate-200" : "bg-white/10"}`} />
             {contactItems
               .filter((i) => ["GitHub", "LinkedIn", "Discord"].includes(i.label))
               .map((item, idx) => (
@@ -118,7 +144,9 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-500 hover:text-white transition-all hover:scale-110 active:scale-95"
+                  className={`transition-all hover:scale-110 active:scale-95 ${
+                    isLight ? "text-slate-500 hover:text-slate-900" : "text-zinc-500 hover:text-white"
+                  }`}
                   title={item.label}
                 >
                   <item.icon size={26} strokeWidth={2.2} />
@@ -141,7 +169,11 @@ const Hero = ({ onTabChange, uiType }: HeroProps) => {
           <div className="absolute -bottom-3 -right-3 w-10 h-10 border-b-2 border-r-2 border-blue-500/60 z-20 transition-transform group-hover:-rotate-12" />
 
           {/* Avatar Container */}
-          <div className="relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-zinc-950">
+          <div
+            className={`relative w-[300px] md:w-[340px] lg:w-[380px] aspect-square rounded-3xl overflow-hidden border shadow-2xl transition-colors duration-500 ${
+              isLight ? "border-slate-200 bg-slate-100" : "border-white/10 bg-zinc-950"
+            }`}
+          >
             {/* Color photo — hidden by default, shown on hover */}
             <img
               src={personalInfo.avatarColorUrl}

@@ -1,6 +1,7 @@
 {
-  "name": "aj7-portfolio",
+  "name": "portfolio-abs",
   "version": "1.0.0",
+  "description": "Personal portfolio of Ahmed Bensalah — Data Engineering & DevOps engineer. Built with React, TypeScript, Vite and Tailwind CSS. Supports EN/FR and dark/light mode.",
   "private": true,
   "scripts": {
     "dev": "vite",

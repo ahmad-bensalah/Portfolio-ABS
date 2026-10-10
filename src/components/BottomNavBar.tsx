@@ -7,14 +7,8 @@ import {
   ContactRound,
   Target,
 } from "lucide-react";
-
-const navItems = [
-  { name: "Home", id: "home", icon: HomeIcon },
-  { name: "About", id: "about", icon: Info },
-  { name: "Projects", id: "projects", icon: FolderKanban },
-  { name: "Skills", id: "skills", icon: Target },
-  { name: "Contact", id: "contact", icon: ContactRound },
-];
+import { usePortfolio } from "../context/PortfolioContext";
+import { uiTranslations } from "../data/userData";
 
 type Props = {
   forcedTab?: string;
@@ -23,6 +17,17 @@ type Props = {
 
 const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
   const [activeSection, setActiveSection] = useState("home");
+  const { lang, theme } = usePortfolio();
+  const t = uiTranslations[lang].nav;
+  const isLight = theme === "light";
+
+  const navItems = [
+    { name: t.home, id: "home", icon: HomeIcon },
+    { name: t.about, id: "about", icon: Info },
+    { name: t.projects, id: "projects", icon: FolderKanban },
+    { name: t.skills, id: "skills", icon: Target },
+    { name: t.contact, id: "contact", icon: ContactRound },
+  ];
 
   useEffect(() => {
     if (forcedTab) {
@@ -58,7 +63,13 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
   return (
     <div className="fixed bottom-4 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none">
-      <nav className="bg-black/60 backdrop-blur-xl border border-white/10 rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto">
+      <nav
+        className={`backdrop-blur-xl border rounded-2xl px-2 py-2 shadow-2xl pointer-events-auto transition-colors duration-300 ${
+          isLight
+            ? "bg-white/80 border-slate-200/90 shadow-slate-300/40"
+            : "bg-black/60 border-white/10 shadow-black/80"
+        }`}
+      >
         <div className="flex items-center gap-1 sm:gap-2 px-1">
           {navItems.map((item) => {
             const isActive = item.id === activeSection;
@@ -75,10 +86,15 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
                     scrollToSection(item.id);
                   }
                 }}
-                className={`relative flex items-center justify-center p-3 sm:p-4 rounded-2xl transition-all duration-300 group ${isActive
-                  ? "text-blue-500 bg-white/10"
-                  : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
-                  }`}
+                className={`relative flex items-center justify-center p-3 sm:p-4 rounded-2xl transition-all duration-300 group ${
+                  isActive
+                    ? isLight
+                      ? "text-blue-600 bg-blue-50/80"
+                      : "text-blue-500 bg-white/10"
+                    : isLight
+                    ? "text-slate-500 hover:text-slate-900 hover:bg-slate-100/70"
+                    : "text-zinc-500 hover:text-zinc-300 hover:bg-white/5"
+                }`}
               >
                 <div className="flex items-center gap-2">
                   <Icon size={20} strokeWidth={isActive ? 2.5 : 2} />
@@ -98,7 +114,13 @@ const BottomNavBar = ({ forcedTab, setForcedTab }: Props) => {
 
                 {/* Tooltip */}
                 {!isActive && (
-                  <span className="absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 bg-zinc-800 text-white text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-white/5 whitespace-nowrap">
+                  <span
+                    className={`absolute -top-12 left-1/2 -translate-x-1/2 px-3 py-1 text-xs font-bold rounded-lg opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border whitespace-nowrap shadow-md ${
+                      isLight
+                        ? "bg-white text-slate-800 border-slate-200"
+                        : "bg-zinc-800 text-white border-white/5"
+                    }`}
+                  >
                     {item.name}
                   </span>
                 )}
