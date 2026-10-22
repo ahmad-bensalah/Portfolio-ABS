@@ -39,7 +39,7 @@ desc_fr: Déploiement automatisé de bout en bout avec Traefik Ingress et contr�
 
 [PROJECT]
 category: AI
-featured: no
+featured: yes
 tech: BiLSTM, Mediapipe, TTS, STT, Python
 github: https://github.com/ahmad-bensalah/SignBridge
 demo: 
