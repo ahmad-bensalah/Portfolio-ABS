@@ -4,7 +4,7 @@
 # You can edit, add, or delete projects directly in this file.
 # Each project starts with: [PROJECT]
 # Fields:
-#   category : DevOps | MLOps | Cloud & IaC | Data & Software
+#   category : DevOps | AI | Cloud & IaC | Data & Software
 #   featured : yes | no   (shows a ⭐ star badge on the card)
 #   tech     : comma-separated technologies (e.g. Docker, Kubernetes, Python)
 #   github   : GitHub repository URL (leave empty if none)
@@ -38,7 +38,7 @@ name_fr: Pipeline CI/CD Kubernetes
 desc_fr: Déploiement automatisé de bout en bout avec Traefik Ingress et contrôle d'admission Kyverno pour la sécurité du cluster.
 
 [PROJECT]
-category: MLOps
+category: AI
 featured: no
 tech: Kubernetes, FastAPI, Longhorn, Python
 github: 
@@ -49,7 +49,7 @@ name_fr: Mission Control
 desc_fr: Couche de gouvernance HPC pour K8s avec synchronisation des politiques en temps réel et dimensionnement de stockage via API REST.
 
 [PROJECT]
-category: MLOps
+category: AI
 featured: yes
 tech: BiLSTM, Mediapipe, TTS, STT, Python
 github: https://github.com/ahmad-bensalah/SignBridge
@@ -71,7 +71,7 @@ name_fr: Pipeline DevSecOps
 desc_fr: Mise en place d'un pipeline DevSecOps pour K8s avec Jenkins, ArgoCD et SonarQube pour des audits de sécurité automatisés.
 
 [PROJECT]
-category: MLOps
+category: AI
 featured: yes
 tech: RAG, LLM, Python, LangChain
 github: https://github.com/ahmad-bensalah/Tunisian_Agentic_RAG

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
 import GlobalBackground from "./components/Background";
-import BottomNavBar from "./components/BottomNavBar";
 import Hero from "./sections/Hero";
 import About from "./pages/About";
 import Skills from "./pages/Skills";
@@ -64,7 +63,6 @@ const App = () => {
                 <section id="projects"><Projects limit={4} /></section>
                 <section id="skills"><Skills /></section>
                 <section id="contact"><Contact /></section>
-                <BottomNavBar />
               </>
             } />
             <Route path="/projects" element={
@@ -89,7 +87,6 @@ const App = () => {
         ) : (
           <div>
             {renderModularUI()}
-            <BottomNavBar forcedTab={activeTab} setForcedTab={setActiveTab} />
           </div>
         )}
       </main>

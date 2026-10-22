@@ -1,7 +1,7 @@
 <h1 align="center">Ahmed Bensalah — Portfolio</h1>
 
 <p align="center">
-  Personal portfolio of <strong>Ahmed Bensalah</strong>, Data Engineering & DevOps engineer.<br/>
+  Personal portfolio of <strong>Ahmed Bensalah</strong>, Data Engineering student specialized in DevOps, data pipelines, and agentic AI.<br/>
   Bilingual (🇬🇧 EN / 🇫🇷 FR) · Dark & Light mode · Fully responsive
 </p>
 
