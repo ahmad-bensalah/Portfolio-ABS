@@ -16,8 +16,8 @@
 # ==============================================================================
 
 [PROJECT]
-category: DevOps
-featured: yes
+category: DevOps & Cloud
+featured: no
 tech: Vagrant, Ansible, Hadoop, IaC
 github: https://github.com/ahmad-bensalah/Hadoop_HA_IaC
 demo: 
@@ -27,8 +27,8 @@ name_fr: Cluster Big Data Automatisé (IaC)
 desc_fr: Déploiement d'un cluster Hadoop 3.3.6 à 3 nœuds basé sur les principes de l'IaC pour un provisionnement rapide et reproductible.
 
 [PROJECT]
-category: DevOps
-featured: yes
+category: DevOps & Cloud
+featured: no
 tech: Jenkins, Docker, Traefik, Kyverno, ArgoCD
 github: https://github.com/ahmad-bensalah/CI-CD_K8S_Jenkins
 demo: 
@@ -40,17 +40,6 @@ desc_fr: Déploiement automatisé de bout en bout avec Traefik Ingress et contr�
 [PROJECT]
 category: AI
 featured: no
-tech: Kubernetes, FastAPI, Longhorn, Python
-github: 
-demo: 
-name_en: Mission Control
-desc_en: Built an HPC governance layer for K8s with "Hot-Enforcement" policy sync and REST API storage scaling.
-name_fr: Mission Control
-desc_fr: Couche de gouvernance HPC pour K8s avec synchronisation des politiques en temps réel et dimensionnement de stockage via API REST.
-
-[PROJECT]
-category: AI
-featured: yes
 tech: BiLSTM, Mediapipe, TTS, STT, Python
 github: https://github.com/ahmad-bensalah/SignBridge
 demo: 
@@ -60,19 +49,8 @@ name_fr: SignBridge
 desc_fr: Plateforme basée sur l'IA assurant la traduction bidirectionnelle entre le dialecte tunisien et la langue des signes tunisienne.
 
 [PROJECT]
-category: DevOps
-featured: no
-tech: Jenkins, ArgoCD, SonarQube, Kubernetes
-github: 
-demo: 
-name_en: DevSecOps Pipeline
-desc_en: Built a DevSecOps pipeline for K8s using Jenkins, ArgoCD, and SonarQube for automated security scanning.
-name_fr: Pipeline DevSecOps
-desc_fr: Mise en place d'un pipeline DevSecOps pour K8s avec Jenkins, ArgoCD et SonarQube pour des audits de sécurité automatisés.
-
-[PROJECT]
 category: AI
-featured: yes
+featured: no
 tech: RAG, LLM, Python, LangChain
 github: https://github.com/ahmad-bensalah/Tunisian_Agentic_RAG
 demo: 
@@ -82,23 +60,111 @@ name_fr: RAG Agentique Tunisien
 desc_fr: Système de génération augmentée par récupération (RAG) agentique conçu pour le dialecte tunisien, offrant une IA conversationnelle contextuelle.
 
 [PROJECT]
-category: Data & Software
-featured: no
-tech: Django, Angular, Python, Cosine Similarity
-github: 
+category: DevOps & Cloud
+featured: yes
+tech: Kubeflow, MicroK8s, Terraform, Ansible, Proxmox, Longhorn, MinIO, FastAPI
+github: https://github.com/ahmad-bensalah/KubeOlive
 demo: 
-name_en: Recommendation Engine
-desc_en: Engineered a recommendation engine using Cosine Similarity with an Angular/Django architecture.
-name_fr: Moteur de Recommandation
-desc_fr: Conception d'un moteur de recommandation basé sur la similarité cosinus avec une architecture moderne Angular/Django.
+name_en: KubeOlive MLOps Platform
+desc_en: Self-hosted Charmed Kubeflow MLOps platform on Proxmox VE, automated with Terraform and Ansible, with Longhorn storage, GitLab OIDC multi-tenancy, per-user MinIO isolation and Elyra visual pipelines.
+name_fr: Plateforme MLOps KubeOlive
+desc_fr: Plateforme MLOps Charmed Kubeflow auto-hébergée sur Proxmox VE, automatisée avec Terraform et Ansible, avec stockage Longhorn, multi-tenant via GitLab OIDC, isolation MinIO par utilisateur et pipelines visuels Elyra.
+
+[PROJECT]
+category: DevOps & Cloud
+featured: no
+tech: Kubernetes, Vagrant, Ansible, Jenkins, Vault, Kyverno, Traefik, Harbor, Trivy
+github: https://github.com/ahmad-bensalah/DevSecOps-Platform
+demo: 
+name_en: DevSecOps Kubernetes Platform
+desc_en: CKS-hardened Kubernetes platform built from bare VMs with 22 Ansible roles, where every push runs SAST, image scanning and Kyverno policy checks before a zero-downtime rollout.
+name_fr: Plateforme Kubernetes DevSecOps
+desc_fr: Plateforme Kubernetes durcie selon les pratiques CKS, construite à partir de VMs via 22 rôles Ansible, où chaque push déclenche analyse SAST, scan d'images et validation Kyverno avant un déploiement sans interruption.
+
+[PROJECT]
+category: DevOps & Cloud
+featured: yes
+tech: Kubernetes, Helm, ArgoCD, Kyverno, LLM, TypeScript
+github: https://github.com/ahmad-bensalah/DevAIPortal
+demo: 
+name_en: DevAIPortal
+desc_en: Conversational Internal Developer Platform that turns plain-language requests into validated Kubernetes environments via GitOps, Helm blueprints and Kyverno-enforced TTL expiry.
+name_fr: DevAIPortal
+desc_fr: Plateforme développeur interne conversationnelle qui transforme des demandes en langage naturel en environnements Kubernetes validés via GitOps, blueprints Helm et expiration automatique gérée par Kyverno.
+
+[PROJECT]
+category: AI
+featured: yes
+tech: n8n, RAG, LLM, Firecrawl, JavaScript
+github: https://github.com/ahmad-bensalah/TendOlive
+demo: 
+name_en: TendOlive RFP Intelligence
+desc_en: Automated tender pipeline (CSTAM 3.0 challenge) that collects public RFPs, matches each requirement against company evidence with RAG, and drafts the proposal deck.
+name_fr: TendOlive – Intelligence Appels d'Offres
+desc_fr: Pipeline automatisé (challenge CSTAM 3.0) qui collecte les appels d'offres publics, vérifie chaque exigence avec un RAG sur la base de connaissances et génère le deck de proposition.
+
+[PROJECT]
+category: AI
+featured: no
+tech: Agentic RAG, STT, TTS, Flutter, Microservices
+github: https://github.com/ahmad-bensalah/aqura-FSS
+demo: 
+name_en: Aqura AI Platform
+desc_en: Voice-first aquaponics platform (IEEE TSYP13 challenge) combining Agentic RAG and Tunisian dialect speech models to help rural communities save water.
+name_fr: Plateforme IA Aqura
+desc_fr: Plateforme d'aquaponie pilotée par la voix (challenge IEEE TSYP13) combinant RAG agentique et modèles vocaux en dialecte tunisien pour réduire la consommation d'eau.
 
 [PROJECT]
 category: Data & Software
 featured: no
-tech: IoT, Embedded, Python, MQTT
-github: 
+tech: Python, Scikit-learn, K-Means, Streamlit, Jupyter
+github: https://github.com/ahmad-bensalah/Churn-Analytica
 demo: 
-name_en: Smart Leak Detection
-desc_en: Developed smart leak detection systems using real-time sensor data monitoring and embedded platforms.
-name_fr: Détection Intelligente de Fuites
-desc_fr: Système intelligent de détection de fuites basé sur la surveillance de flux de données de capteurs en temps réel et IoT.
+name_en: Churn Analytica
+desc_en: End-to-end telecom churn prediction on 7,043 customers, from multi-source data fusion and clustering to supervised models deployed in a Streamlit app.
+name_fr: Churn Analytica
+desc_fr: Prédiction de bout en bout du churn télécom sur 7 043 clients, de la fusion multi-sources et du clustering aux modèles supervisés déployés dans une application Streamlit.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: Angular, Spring Boot, MySQL, JWT, Docker
+github: https://github.com/ahmad-bensalah/Dar-Ettabib
+demo: 
+name_en: Dar Ettabib
+desc_en: Clinical management platform with role-based access for admins, doctors and patients, covering appointments, medical records and messaging.
+name_fr: Dar Ettabib
+desc_fr: Plateforme de gestion clinique avec accès par rôle pour administrateurs, médecins et patients : rendez-vous, dossiers médicaux et messagerie.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: Spring Boot, Angular, MySQL, JPA
+github: https://github.com/ahmad-bensalah/JEE-Hospital-management
+demo: 
+name_en: Hospital Management (JEE)
+desc_en: Spring Boot and Angular web application managing patients, doctors, appointments and consultations on a MySQL database.
+name_fr: Gestion Hospitalière (JEE)
+desc_fr: Application web Spring Boot et Angular pour la gestion des patients, médecins, rendez-vous et consultations sur une base MySQL.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: React, TypeScript, Vite, Tailwind CSS
+github: https://github.com/ahmad-bensalah/Jaco-Mat
+demo: https://ahmedbensalah8603.github.io/Jaco-Mat/
+name_en: JacoMat Pro
+desc_en: Web app that solves systems of linear equations with the iterative Jacobi method, from manual input or CSV upload, with visualizations.
+name_fr: JacoMat Pro
+desc_fr: Application web qui résout des systèmes d'équations linéaires par la méthode itérative de Jacobi, par saisie manuelle ou import CSV, avec visualisations.
+
+[PROJECT]
+category: Data & Software
+featured: no
+tech: C++, SFML
+github: https://github.com/ahmad-bensalah/FlappyZiwziw
+demo: 
+name_en: Flappy Ziwziw
+desc_en: Flappy Bird–inspired game in C++ with SFML, featuring procedurally generated obstacles and real-time scoring.
+name_fr: Flappy Ziwziw
+desc_fr: Jeu inspiré de Flappy Bird développé en C++ avec SFML, avec obstacles générés dynamiquement et score en temps réel.
