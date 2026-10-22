@@ -1,12 +1,35 @@
 {
   "name": "portfolio-abs",
   "version": "1.0.0",
-  "description": "Personal portfolio of Ahmed Bensalah — Data Engineering student specialized in DevOps, data pipelines, and agentic AI. Built with React, TypeScript, Vite and Tailwind CSS. Supports EN/FR and dark/light mode.",
+  "description": "Ahmad Bensalah — DevOps-focused Data Engineering student portfolio. Kubernetes, Terraform, GitOps, MLOps. Built with React, TypeScript, Vite and Tailwind CSS. Bilingual EN/FR.",
   "private": true,
+  "homepage": "https://portfolio-abs-phi.vercel.app/",
+  "keywords": [
+    "ahmad-bensalah",
+    "devops",
+    "platform-engineering",
+    "kubernetes",
+    "terraform",
+    "mlops",
+    "dataops",
+    "gitops",
+    "portfolio",
+    "tunisia"
+  ],
+  "author": {
+    "name": "Ahmad Bensalah",
+    "email": "ahmad.bensalah.contact@gmail.com",
+    "url": "https://portfolio-abs-phi.vercel.app/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahmad-bensalah/Portfolio-ABS"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:cloudflare": "vite build"
   },
   "dependencies": {
     "clsx": "^2.1.1",

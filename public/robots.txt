@@ -1,0 +1,25 @@
+# robots.txt for Ahmad Bensalah Portfolio
+# https://portfolio-abs-phi.vercel.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://portfolio-abs-phi.vercel.app/sitemap.xml
+
+# Disallow admin and private paths (if any exist in future)
+Disallow: /api/
+Disallow: /*.json$
+
+# Allow all assets
+Allow: /assets/
+Allow: /icons/
+Allow: /*.css$
+Allow: /*.js$
+Allow: /*.png$
+Allow: /*.jpg$
+Allow: /*.svg$
+Allow: /*.pdf$
+
+# Crawl-delay (optional, for courtesy)
+Crawl-delay: 1
