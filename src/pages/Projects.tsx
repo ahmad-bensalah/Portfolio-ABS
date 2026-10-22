@@ -18,12 +18,12 @@ const Projects = ({ limit }: { limit?: number }) => {
   const projectCategories = Array.from(new Set(projectData.map((p) => p.category)));
 
   // Filter projects based on active tab:
-  // "featured": projects with a GitHub repo (with star icon)
+  // "featured": projects marked with featured: yes in projects.txt
   // "all": all projects
   // specific category: projects matching category
   const filteredProjects = projectData.filter((p) => {
     if (activeCategory === "featured") {
-      return Boolean(p.github && p.github.trim() !== "");
+      return p.featured === true;
     }
     if (activeCategory === "all") {
       return true;
@@ -139,7 +139,7 @@ const Projects = ({ limit }: { limit?: number }) => {
         {/* Projects Grid */}
         <div className="grid gap-4 md:grid-cols-2 max-w-6xl mx-auto sm:px-0">
           {displayProjects.map((project) => {
-            const isFeatured = Boolean(project.github && project.github.trim() !== "");
+            const isFeatured = project.featured === true;
 
             return (
               <motion.div
