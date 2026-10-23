@@ -1,170 +1,217 @@
-% Ahmad Bensalah - DevOps Engineer CV (English)
-% Compile with: pdflatex CV_Ahmad_Bensalah_EN.tex
+\documentclass[a4paper,10pt]{article}
 
-\documentclass[11pt,a4paper,sans]{moderncv}
-
-% ModernCV theme
-\moderncvstyle{banking}
-\moderncvcolor{blue}
-
-% Character encoding
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\IfFileExists{lmodern.sty}{\usepackage{lmodern}}{}
+\usepackage[english]{babel}
+\usepackage[margin=1.35cm, top=0.9cm, bottom=0.8cm]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\input{glyphtounicode}
+\pdfgentounicode=1
 
-% Adjust page margins
-\usepackage[scale=0.85]{geometry}
-\setlength{\hintscolumnwidth}{3cm}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\tabcolsep}{0pt}
+\raggedbottom
+\raggedright
+\urlstyle{same}
+\linespread{0.97}
 
-% Personal data
-\name{Ahmad}{Bensalah}
-\title{DevOps \& Platform Engineering}
-\phone[mobile]{+216~XX~XXX~XXX}
-\email{ahmad.bensalah.contact@gmail.com}
-\social[linkedin]{ahmad-bensalah}
-\social[github]{ahmad-bensalah}
-\homepage{portfolio-abs.pages.dev}
-\extrainfo{Available: February 2027 (6-month internship)}
+\definecolor{accent}{HTML}{1F3A5F}
+
+\titleformat{\section}
+{\color{accent}\scshape\large\bfseries}
+{}{0em}{}
+[\color{accent}\titlerule]
+
+\titlespacing*{\section}{0pt}{5pt}{2pt}
+
+\setlist[itemize]{
+leftmargin=0.35cm,
+topsep=1pt,
+partopsep=0pt,
+itemsep=0.6pt,
+parsep=0pt,
+label=\textbullet
+}
+
+% \entry{Title}{Date}{Subtitle}{Location}
+\newcommand{\entry}[4]{%
+\vspace{2pt}
+\begin{tabular*}{\textwidth}{@{}l@{\extracolsep{\fill}}r@{}}
+\textbf{#1} & \textbf{\small #2} \\
+\ifstrempty{#3#4}{}{\textit{\small #3} & \textit{\small #4} \\}
+\end{tabular*}\par\vspace{-1pt}
+}
 
 \begin{document}
 
-\makecvtitle
-
-% ================================
-% PROFILE
-% ================================
-\section{Profile}
+% ======================= HEADER =======================
+\begin{center}
+{\Huge\scshape\color{accent} Ahmad Bensalah}\\[3pt]
 \small
-Data Engineering student at FSS (Tunisia), graduating in 2027, seeking a \textbf{6-month internship starting February 2027} in \textbf{DevOps, Platform Engineering, or MLOps}.
++216 40 541 086 $|$
+\href{mailto:ahmad.bensalah.contact@gmail.com}{ahmad.bensalah.contact@gmail.com} $|$
+\href{https://www.linkedin.com/in/ahmad-bensalah}{LinkedIn - Ahmad Bensalah} $|$
+\href{https://github.com/ahmad-bensalah}{GitHub - ahmad-bensalah}\\[1pt]
+Sfax, Tunisia \,$\cdot$\, open to relocation in Europe
+\end{center}
 
-I build the \textbf{infrastructure that powers data and AI systems}. Specialized in \textbf{Linux, Kubernetes, and cloud-native automation} with \textbf{Infrastructure as Code, GitOps, and DevSecOps}. Experience deploying \textbf{multi-tenant MLOps platforms} and building AI agents for operations automation. IEEE IECON 2026 author.
+\vspace{-6pt}
 
-% ================================
-% TECHNICAL SKILLS
-% ================================
-\section{Technical Skills}
+% ======================= PROFILE =======================
+\section{Profile}
 
-\cvitem{\textbf{Cloud \& Orchestration}}{
-  \textbullet~Kubernetes · Docker · Proxmox · Azure · GCP
-}
+{\small
+Data Engineering student (Faculty of Sciences of Sfax, graduating 2027),
+\textbf{seeking a 6-month final-year internship (PFE) starting February 2027}
+in \textbf{DevOps, Cloud or MLOps}. Experienced in deploying multi-tenant
+\textbf{Kubernetes platforms}, automating infrastructure with
+\textbf{IaC and GitOps}, and designing AI agents, agentic AI workflows
+and RAG architectures.
+\par}
 
-\cvitem{\textbf{IaC \& CI/CD}}{
-  \textbullet~Terraform · Ansible · Helm · ArgoCD · GitLab CI · OpenTofu · Apache CloudStack
-}
-
-\cvitem{\textbf{MLOps \& Agentic AI}}{
-  \textbullet~KServe · MLflow · LangChain · LangGraph · n8n
-}
-
-\cvitem{\textbf{DataOps \& Data Eng.}}{
-  \textbullet~Airflow · Kafka · Apache Iceberg · Hive · Trino
-}
-
-\cvitem{\textbf{Observability \& Security}}{
-  \textbullet~Prometheus · Grafana · OpenTelemetry · Istio · Kyverno · Vault · Harbor · Trivy
-}
-
-\cvitem{\textbf{Languages \& Frameworks}}{
-  \textbullet~Python · Bash · SQL · Django · Angular · Java
-}
-
-% ================================
-% FEATURED PROJECTS
-% ================================
-\section{Featured Projects}
-
-\cventry{2024}{KubeOlive MLOps Platform}{LAMBDA Lab}{}{}{
-  Self-hosted Charmed Kubeflow MLOps platform on Proxmox VE, automated with Terraform and Ansible, with Longhorn storage, GitLab OIDC multi-tenancy, per-user MinIO isolation and Elyra visual pipelines.
-  \newline
-  \textbf{Stack:} Kubeflow · MicroK8s · Terraform · Ansible · Proxmox · Longhorn · MinIO · FastAPI
-  \newline
-  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/KubeOlive}
-}
-
-\cventry{2024}{DevAIPortal}{Personal Project}{}{}{
-  Conversational Internal Developer Platform that turns plain-language requests into validated Kubernetes environments via GitOps, Helm blueprints and Kyverno-enforced TTL expiry.
-  \newline
-  \textbf{Stack:} Kubernetes · Helm · ArgoCD · Kyverno · LLM · TypeScript
-  \newline
-  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/DevAIPortal}
-}
-
-\cventry{2024}{TendOlive RFP Intelligence}{CSTAM 3.0 Challenge}{}{}{
-  Automated tender pipeline that collects public RFPs, matches each requirement against company evidence with RAG, and drafts the proposal deck.
-  \newline
-  \textbf{Stack:} n8n · RAG · LLM · Firecrawl · JavaScript
-  \newline
-  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/TendOlive}
-}
-
-\cventry{2023}{SignBridge}{Academic Project}{}{}{
-  AI-driven platform enabling two-way translation between Tunisian Dialect and Tunisian Sign Language.
-  \newline
-  \textbf{Stack:} BiLSTM · Mediapipe · TTS · STT · Python
-  \newline
-  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/SignBridge}
-}
-
-% ================================
-% PROFESSIONAL EXPERIENCE
-% ================================
+% ======================= EXPERIENCE =======================
 \section{Professional Experience}
+\small
 
-\cventry{Jul--Sep 2024}{DevOps \& MLOps Engineer}{LAMBDA Lab - FSS}{Sfax, Tunisia}{}{
-  \begin{itemize}
-    \item Deployed multi-tenant Kubeflow platform on Proxmox with IaC (Terraform, Ansible)
-    \item Implemented GitOps workflows with ArgoCD and distributed storage management (Longhorn)
-    \item Built FastAPI self-service portal for automated user onboarding
-    \item Trained team on MLOps workflows and Elyra pipeline development
-  \end{itemize}
-}
+\entry
+{OLIVESOFT -- MLOps \& DevOps Intern\textnormal{\textit{\small, Sfax}}}
+{Jun -- Aug 2026}{}{}
+\begin{itemize}
+\item Designed and deployed a \textbf{Kubeflow platform} on a private cloud
+(Proxmox, Terraform, Ansible, Kubernetes) to pool AI resources across
+several research teams (LAMBDA unit).
+\end{itemize}
 
-\cventry{Mar--May 2024}{DataOps \& DevOps Intern}{InovareTech}{Sfax, Tunisia}{}{
-  \begin{itemize}
-    \item Automated Hadoop cluster deployment with Vagrant and Ansible
-    \item Built CI/CD pipelines with Jenkins, Docker, and ArgoCD
-    \item Configured observability stack with Prometheus and Grafana
-    \item Implemented Kyverno policy enforcement for cluster security
-  \end{itemize}
-}
+\entry
+{Diwan FM -- DevOps Engagement\textnormal{\textit{\small, Tunisia}}}
+{Apr 2026}{}{}
+\begin{itemize}
+\item Contributed to deploying the \textbf{Diwan Sport} platform on an
+on-premises datacenter: infrastructure provisioning and \textbf{CI/CD}
+pipeline automation.
+\end{itemize}
 
-% ================================
-% EDUCATION
-% ================================
+\entry
+{SIFAST -- DevSecOps Intern\textnormal{\textit{\small, Sfax}}}
+{Jul -- Aug 2025}{}{}
+\begin{itemize}
+\item Built a fully automated \textbf{DevSecOps pipeline} for Spring Boot
+applications: GitOps, continuous deployment, centralized monitoring,
+real-time alerting and integrated security scanning.
+\end{itemize}
+
+\entry
+{Orange Djagora Fablab -- Full Stack Intern\textnormal{\textit{\small, Sfax}}}
+{Jul 2024}{}{}
+\begin{itemize}
+\item Developed a web platform recommending tourist itineraries using
+cosine similarity (Angular, Django).
+\end{itemize}
+
+% ======================= SKILLS =======================
+\section{Technical Skills}
+\small
+
+\begin{tabular}{@{}p{4.1cm}@{}p{\dimexpr\textwidth-4.1cm\relax}@{}}
+\textbf{Cloud \& orchestration}
+& Kubernetes, Docker, Helm, Kubeflow, KServe, MLflow, Proxmox, Longhorn, AWS (EKS), Azure (AKS), GCP (GKE) \\
+\textbf{IaC \& CI/CD}
+& Terraform, Ansible, ArgoCD, GitHub Actions, Jenkins \\
+\textbf{Observability \& security}
+& Prometheus, Grafana, OpenTelemetry, Trivy, SonarQube, Vault, Kyverno \\
+\textbf{Generative \& Agentic AI}
+& LangChain, LangGraph, n8n, CrewAI, RAG, MCP, ChromaDB, LLM orchestration, multi-agent systems \\
+\textbf{Networking}
+& Istio, VPC, VPN/IPSec, DNS, load balancing \\
+\textbf{Languages \& frameworks}
+& Python, Bash, SQL, Java \quad \textit{Frameworks:} FastAPI, Django, Spring Boot \\
+\textbf{Methodologies}
+& GitOps, MLOps, DataOps, DevSecOps, LLMOps, Agile/Scrum \\
+\end{tabular}
+
+% ======================= PROJECTS =======================
+\section{Projects}
+\small
+
+\entry
+{Multi-Tenant MLOps Platform \& Self-Service Portal}
+{}{\small Proxmox, Terraform, Ansible, MicroK8s, Kubeflow, Istio, Longhorn, FastAPI}{}
+\begin{itemize}
+\item Deployed a \textbf{Kubeflow 1.10} cluster on Proxmox with Terraform/Ansible, Longhorn and Istio;
+built a FastAPI portal for multi-tenant onboarding with SSO, RBAC, CPU/RAM/GPU quotas and pipeline pre-provisioning.
+\end{itemize}
+
+\entry
+{SRE Copilot: AI Agent-Driven GitOps Remediation}
+{}{\small AKS, n8n, Azure OpenAI, ArgoCD, Prometheus, Kyverno}{}
+\begin{itemize}
+\item AI agent that triages alerts, investigates read-only and proposes a runbook. Every fix goes through a
+\textbf{GitOps PR} validated by CI (Helm, Kyverno) and deployed by ArgoCD, with \textbf{automatic rollback} and a generated post-mortem.
+\end{itemize}
+
+\entry
+{n8n AI Agents: AI DevPortal (GKE) and Teams ChatOps (EKS)}
+{}{\small n8n, Vertex AI, AWS Bedrock, ArgoCD/Rollouts, Kyverno, AWS IAM}{}
+\begin{itemize}
+\item \textbf{DevPortal}: natural-language requests turned into validated blueprints (never free-form YAML), Kyverno dry-run, auto-expiring ephemeral environments.
+\item \textbf{ChatOps}: Teams bot with plan/execute modes, safelist-based plans, \textbf{human approval}, append-only audit log, canary with automatic rollback.
+\end{itemize}
+
+\entry
+{SignBridge: Tunisian Dialect $\leftrightarrow$ Sign Language Translation}
+{}{\small Azure AKS, ACR, FastAPI, STT/TTS, BiLSTM, MediaPipe}{}
+\begin{itemize}
+\item Inclusive real-time AI solution on AKS (speech $\rightarrow$ sign language and back) built as microservices.
+\end{itemize}
+
+% ======================= EDUCATION =======================
 \section{Education}
+\small
 
-\cventry{2022--2027}{Engineering Degree in Data Engineering}{Faculty of Sciences of Sfax}{Tunisia}{}{
-  \textbf{Specialization:} DevOps, Cloud Computing, MLOps, Data Engineering
-}
+\entry
+{Faculty of Sciences of Sfax (FSS)}
+{2022 -- 2027 (expected)}
+{Engineering Degree in Data Engineering (5-year program), after integrated preparatory cycle (2 years)}
+{Sfax, Tunisia}
 
-\cventry{2020--2022}{Preparatory Classes MPSI/MP}{Lycée Pilote de Sfax}{Tunisia}{}{
-  Mathematics, Physics, Engineering Sciences
-}
+\entry
+{Lyc\'ee Mahmoud Megdiche}
+{2022}
+{Baccalaureate in Mathematics, with Honors}
+{Sfax, Tunisia}
 
-% ================================
-% PUBLICATIONS \& AWARDS
-% ================================
-\section{Publications \& Awards}
+% ======================= PUBLICATIONS =======================
+\section{Publications, Awards \& Leadership}
+\small
 
-\cvitem{2026}{\textbf{IEEE IECON 2026 Author} - Accepted paper on agentic AI for sustainable aquaponics}
+\begin{itemize}
+\item \textbf{Publication:}
+\textit{``Dual-Core Defense: A Neuro-Symbolic Generative Framework
+for Automated Detection of Zero-Day Hardware Vulnerabilities in
+SoC Designs''}, IEEE IECON 2026, Doha (paper accepted).
+\item \textbf{1st Prize}, IEEE WIEACT 4.0 Challenge; \textbf{2nd Prize}, IEEE PESTGM 7.0 (national congresses).
+\item \textbf{Competitive programming:} IEEEXtreme 18, 19 \& 20; TCPC 2023 \& 2024.
+\item \textbf{Chair}, IEEE CIS FSS (2025--2026); \textbf{HR Lead}, GDSC FSS (2024--2025); \textbf{Treasurer}, IEEE FSS SB (2024--2025).
+\end{itemize}
 
-\cvitem{2024}{\textbf{CSTAM 3.0 Challenge Finalist} - TendOlive (AI-powered RFP automation)}
+% ======================= CERTIFICATIONS =======================
+\section{Certifications \& Languages}
+\small
 
-\cvitem{2023}{\textbf{IEEE TSYP13 Challenge} - Aqura AI (voice-first aquaponics platform)}
-
-% ================================
-% LANGUAGES
-% ================================
-\section{Languages}
-
-\cvitemwithcomment{Arabic}{Native}{}
-\cvitemwithcomment{French}{Fluent (C1)}{}
-\cvitemwithcomment{English}{Fluent (C1)}{}
-
-% ================================
-% CERTIFICATIONS (Optional)
-% ================================
-% \section{Certifications}
-% \cvitem{2024}{Certified Kubernetes Administrator (CKA) - In Progress}
-% \cvitem{2024}{HashiCorp Certified: Terraform Associate - In Progress}
+\begin{tabular}{@{}p{4.1cm}@{}p{\dimexpr\textwidth-4.1cm\relax}@{}}
+\textbf{Certifications}
+& Certified Kubernetes Administrator (Linux Foundation) -- \textit{in progress}
+$\;\cdot\;$ NVIDIA Fundamentals of Deep Learning \\
+\textbf{Languages}
+& Arabic (native) $\;\cdot\;$ French (C1) $\;\cdot\;$ English (B2, Cambridge FCE) $\;\cdot\;$ German (A2) \\
+\textbf{Interests}
+& Chess, padel, football, camping \\
+\end{tabular}
 
 \end{document}

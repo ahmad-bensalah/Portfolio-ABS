@@ -495,6 +495,6 @@ export const projectData = parsedProjects.en;
 
 
 export const resume = {
-  en: "/CV_Devops-en.pdf",
-  fr: "/CV_Devops-fr.pdf",
+  en: "/portf_cv_en.pdf",
+  fr: "/portf_cv_fr.pdf",
 };

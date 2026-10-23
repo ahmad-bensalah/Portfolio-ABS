@@ -1,171 +1,232 @@
-% Ahmad Bensalah - CV DevOps Engineer (French)
-% Compile with: pdflatex CV_Ahmad_Bensalah_FR.tex
+% ============================================================
+%  CV Ahmad Bensalah : replica of the HTML version (A4, 1 page)
+%  Compile with:  pdflatex cv_ahmad_bensalah.tex   (run twice)
+%  Needs: photo.jpg in the same folder (the photo from the HTML)
+%  Needs package: fontawesome5 (icons)
+% ============================================================
+\documentclass[a4paper]{article}
 
-\documentclass[11pt,a4paper,sans]{moderncv}
-
-% ModernCV theme
-\moderncvstyle{banking}
-\moderncvcolor{blue}
-
-% Character encoding
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[french]{babel}
+\usepackage[scaled=1]{helvet}          % Arial-like font
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{eso-pic}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
 
-% Adjust page margins
-\usepackage[scale=0.85]{geometry}
-\setlength{\hintscolumnwidth}{3cm}
+% ---------- Page geometry (1px = 0.2646mm, HTML page = 794px = 210mm) ----------
+\usepackage[paperwidth=210mm,paperheight=297mm,
+  left=7.41mm,right=7.41mm,top=42.23mm,bottom=4.8mm,
+  noheadfoot,nomarginpar]{geometry}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\setlength{\topskip}{0pt}
 
-% Personal data
-\name{Ahmad}{Bensalah}
-\title{Ingénieur DevOps \& Platform Engineering}
-\phone[mobile]{+216~XX~XXX~XXX}
-\email{ahmad.bensalah.contact@gmail.com}
-\social[linkedin]{ahmad-bensalah}
-\social[github]{ahmad-bensalah}
-\homepage{portfolio-abs.pages.dev}
-\extrainfo{Disponible : Février 2027 (PFE 6 mois)}
+% ---------- Colors (same as CSS variables) ----------
+\definecolor{navy}{HTML}{303846}
+\definecolor{headingc}{HTML}{1F2D52}
+\definecolor{mutedc}{HTML}{5C6066}
+\definecolor{linec}{HTML}{E4E4E4}
+\definecolor{headlinec}{HTML}{DFE5F3}
+\definecolor{contactc}{HTML}{A9B3CC}
+\definecolor{textc}{HTML}{1A1A1A}
+\color{textc}
 
+% ---------- Helper commands (px -> pt: x0.75) ----------
+\newcommand{\SecHead}[1]{{\color{headingc}\fontsize{12.44pt}{15.25pt}\selectfont #1\par}\vspace{4.20pt}}
+\newcommand{\SH}[1]{{\color{headingc}\fontsize{11.24pt}{14.41pt}\selectfont #1\par}\vspace{4.20pt}}
+\newcommand{\secsep}{\par\vspace{6.00pt}{\color{linec}\hrule height 0.75pt}\vspace{6.00pt}}
+\newcommand{\sidesep}{\par\vspace{6.00pt}{\color{linec}\hrule height 0.75pt}\vspace{6.00pt}}
+\newcommand{\muted}[1]{{\color{mutedc}\fontsize{8.19pt}{11.02pt}\selectfont #1}}
+\newcommand{\jp}[1]{{\fontsize{8.19pt}{11.19pt}\selectfont #1\par}}
+\newcommand{\jobend}{\vspace{6.00pt}}
+
+\newlength{\tmpw}
+% Row: title on the left, date on the right (flex space-between)
+\newcommand{\jobrow}[2]{%
+  \settowidth{\tmpw}{\fontsize{8.51pt}{12.58pt}\selectfont #2}%
+  \noindent\begin{minipage}[t]{\dimexpr\linewidth-\tmpw-7.5pt\relax}%
+    \raggedright\fontsize{8.51pt}{12.58pt}\selectfont #1%
+  \end{minipage}\hfill
+  \begin{minipage}[t]{\tmpw}\fontsize{8.51pt}{12.58pt}\selectfont #2\end{minipage}\par
+  \vspace{3pt}}
+\newcommand{\jobrowsolo}[1]{%
+  {\fontsize{8.51pt}{12.58pt}\selectfont #1\par}\vspace{3pt}}
+\newcommand{\company}[1]{{\color{mutedc}\fontsize{8.19pt}{11.02pt}\selectfont #1\par}\vspace{3.00pt}}
+
+% Bullet list: font size, line height, left margin
+\newenvironment{pubul}[3]{%
+  \fontsize{#1}{#2}\selectfont
+  \begin{itemize}[leftmargin=#3,labelsep=3pt,label=\textbullet,itemsep=3.00pt,
+                  topsep=0pt,parsep=0pt,partopsep=0pt]}%
+  {\end{itemize}\vspace{3.00pt}}
+
+% Sidebar skill line
+\newcommand{\sk}[2]{{\fontsize{7.86pt}{11.02pt}\selectfont\textcolor{mutedc}{#1 : }#2\par}\vspace{4.50pt}}
+
+% ---------- Header (navy band, photo, identity) ----------
+\AddToShipoutPictureBG*{\AtPageUpperLeft{%
+\begin{tikzpicture}[overlay]
+  \fill[navy] (0,0) rectangle (250mm,-38mm);          % was -33.07mm
+  \begin{scope}
+    \clip (0,0) rectangle (36mm,-38mm);
+    \node[anchor=north west,inner sep=0] at (0,0)      % top-aligned, not centered
+      {\includegraphics[width=36mm]{photo.jpg}};
+  \end{scope}
+  \node[anchor=north west,inner sep=0,text width=180.2mm,align=left,text=white]
+    at (43.4mm,-7.5mm) {%
+    {\fontsize{20.25pt}{22.5pt}\selectfont Ahmad Bensalah\par}
+    \vspace{15pt}                                        % was 3pt  (name -> headline)
+    {\fontsize{8.6pt}{11.25pt}\selectfont\color{headlinec}%
+      Recherche stage de fin d’études (PFE) DevOps / IA / MLOps · 6 mois dès février 2027\par}
+    \vspace{11pt}                                       % was 6.75pt (headline -> contacts)
+    {\fontsize{7.2pt}{9pt}\selectfont\color{contactc}%
+      \href{tel:+21640541086}{\textcolor{contactc}{\faPhone\hspace{3.75pt}+216 40 541 086}}\hspace{9.75pt}%
+      \href{mailto:ahmad.bensalah.contact@gmail.com}{\textcolor{contactc}{\faEnvelope\hspace{3.75pt}ahmad.bensalah.contact@gmail.com}}\hspace{9.75pt}%
+      \href{https://www.linkedin.com/in/ahmad-bensalah}{\textcolor{contactc}{\faLinkedinIn\hspace{3.75pt}linkedin}}\hspace{9.75pt}%
+      \href{https://github.com/ahmad-bensalah}{\textcolor{contactc}{\faGithub\hspace{3.75pt}github}}\hspace{9.75pt}%
+      \textcolor{contactc}{\faMapMarker*\hspace{3.75pt}Sfax, Tunisie · mobilité en Europe}\par}
+  };
+\end{tikzpicture}}}
+
+% ============================================================
 \begin{document}
 
-\makecvtitle
+% ---------------- MAIN COLUMN ----------------
+\newsavebox{\mainbox}
+\newsavebox{\sidebox}
 
-% ================================
-% PROFIL
-% ================================
-\section{Profil}
-\small
-Étudiant ingénieur en \textbf{Data Engineering} à la FSS, diplômé prévu en 2027, à la recherche d'un \textbf{PFE de 6 mois à partir de février 2027} en \textbf{DevOps, Platform Engineering ou MLOps}.
+\sbox{\mainbox}{\begin{minipage}[t]{129.05mm}\raggedright
 
-Je construis les \textbf{infrastructures sur lesquelles reposent les systèmes de données et d'IA}. Spécialisé en \textbf{Linux, Kubernetes et automatisation cloud-native} avec \textbf{Infrastructure as Code, GitOps et DevSecOps}. Expérience dans le déploiement de plateformes \textbf{MLOps multi-tenant} et la conception d'agents IA pour l'automatisation des opérations. Auteur IEEE IECON 2026.
+% ---- Profil ----
+\SecHead{Profil}
+{\fontsize{8.51pt}{12.71pt}\selectfont
+Étudiant ingénieur en Data Engineering (FSS, diplôme 2027), à la recherche d’un \textbf{PFE de 6 mois dès février 2027} en \textbf{DevOps, Cloud ou MLOps}. Expérience dans le déploiement de \textbf{plateformes Kubernetes} multi-tenant, l’automatisation des infrastructures via l’Infrastructure as Code (IaC) et le GitOps, ainsi que dans la conception d’agents IA, de workflows Agentic AI et d’architectures RAG.\par}
+\secsep
 
-% ================================
-% COMPÉTENCES TECHNIQUES
-% ================================
-\section{Compétences Techniques}
+% ---- Formation ----
+\SecHead{Formation}
+\jobrow{\textbf{Cycle ingénieur en Data Engineering (Bac+5)} · \muted{Faculté des Sciences de Sfax}}{2024 – 2027}
+\vspace{3pt}
+\jobrow{\textbf{Cycle préparatoire intégré} · \muted{Faculté des Sciences de Sfax}}{2022 – 2024}
+\jobrow{\textbf{Baccalauréat en Mathématiques, mention Bien} · \muted{Lycée Mahmoud Megdiche, Sfax}}{2022}
+\secsep
 
-\cvitem{\textbf{Cloud \& Orchestration}}{
-  \textbullet~Kubernetes · Docker · Proxmox · Azure · GCP
-}
+% ---- Expérience professionnelle ----
+\SecHead{Expérience professionnelle}
 
-\cvitem{\textbf{IaC \& CI/CD}}{
-  \textbullet~Terraform · Ansible · Helm · ArgoCD · GitLab CI · OpenTofu · Apache CloudStack
-}
+\jobrow{\textbf{Stagiaire MLOps \& DevOps} · \muted{OLIVESOFT, Sfax, Tunisie}}{Juin – Août 2026}
+\jp{Conçu et déployé une plateforme \textbf{Kubeflow} sur cloud privé (Proxmox, Terraform, Ansible, Kubernetes) pour mutualiser les ressources IA de plusieurs équipes de recherche (unité \href{https://lambdalab.org}{\textcolor{headingc}{LAMBDA}}).}
+\jobend
 
-\cvitem{\textbf{MLOps \& IA Agentic}}{
-  \textbullet~KServe · MLflow · LangChain · LangGraph · n8n
-}
+\jobrow{\textbf{Mission DevOps} · \muted{Diwan FM, Tunisie}}{Avril 2026}
+\jp{Participé au déploiement de la plateforme Diwan Sport sur un datacenter on-premise : provisionnement de l’infrastructure et automatisation des pipelines \textbf{CI/CD}.}
+\jobend
 
-\cvitem{\textbf{DataOps \& Data Eng.}}{
-  \textbullet~Airflow · Kafka · Apache Iceberg · Hive · Trino
-}
+\jobrow{\textbf{Stagiaire DevSecOps} · \muted{SIFAST, Sfax, Tunisie}}{Juil. – Août 2025}
+\jp{Mis en place un \textbf{pipeline DevSecOps} entièrement automatisé pour des applications Spring Boot : GitOps, déploiement continu, supervision centralisée, alertes en temps réel et analyse de sécurité intégrée.}
+\jobend
 
-\cvitem{\textbf{Observabilité \& Sécurité}}{
-  \textbullet~Prometheus · Grafana · OpenTelemetry · Istio · Kyverno · Vault · Harbor · Trivy
-}
+\jobrow{\textbf{Stagiaire Full Stack} · \muted{Orange Djagora Fablab, Sfax, Tunisie}}{Juil. 2024}
+\jp{Développé une plateforme web de recommandation de circuits touristiques par similarité cosinus (Angular, Django).}
+\secsep
 
-\cvitem{\textbf{Langages \& Frameworks}}{
-  \textbullet~Python · Bash · SQL · Django · Angular · Java
-}
+% ---- Projets ----
+\SecHead{Projets}
 
-% ================================
-% PROJETS PHARES
-% ================================
-\section{Projets Phares}
+\jobrowsolo{\textbf{Plateforme MLOps multi-tenant \& portail self-service}}
+\company{Proxmox, Terraform, Ansible, MicroK8s, Kubeflow, Istio, Longhorn, GitLab OIDC, FastAPI}
+\begin{pubul}{8.19pt}{11.19pt}{9.90pt}
+  \item Déployé un cluster \textbf{Kubeflow 1.10} sur Proxmox avec Terraform/Ansible, Longhorn et Istio.
+  \item Conçu un portail FastAPI pour l’onboarding multi-tenant, avec SSO, RBAC, quotas CPU/RAM/GPU et pré-provisionnement des pipelines.
+\end{pubul}
+\jobend
 
-\cventry{2024}{KubeOlive MLOps Platform}{LAMBDA Lab}{}{}{
-  Plateforme MLOps Charmed Kubeflow auto-hébergée sur Proxmox VE, automatisée avec Terraform et Ansible, avec stockage Longhorn, multi-tenant via GitLab OIDC, isolation MinIO par utilisateur et pipelines visuels Elyra.
-  \newline
-  \textbf{Stack :} Kubeflow · MicroK8s · Terraform · Ansible · Proxmox · Longhorn · MinIO · FastAPI
-  \newline
-  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/KubeOlive}
-}
+\jobrowsolo{\textbf{SRE Copilot : remédiation GitOps pilotée par un agent IA}}
+\company{AKS, n8n, Azure OpenAI, ArgoCD, Prometheus/Alertmanager, Kyverno}
+\begin{pubul}{8.19pt}{11.19pt}{9.90pt}
+  \item Agent IA (Azure OpenAI, LangChain, n8n) qui trie les alertes, investigue en lecture seule et propose un runbook. Toute remédiation passe par une \textbf{PR GitOps} validée par CI (Helm, Kyverno), déployée par ArgoCD, avec \textbf{rollback automatique} et post-mortem généré.
+\end{pubul}
+\jobend
 
-\cventry{2024}{DevAIPortal}{Projet Personnel}{}{}{
-  Plateforme développeur interne conversationnelle qui transforme des demandes en langage naturel en environnements Kubernetes validés via GitOps, blueprints Helm et expiration automatique gérée par Kyverno.
-  \newline
-  \textbf{Stack :} Kubernetes · Helm · ArgoCD · Kyverno · LLM · TypeScript
-  \newline
-  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/DevAIPortal}
-}
+\jobrowsolo{\textbf{Agents IA n8n : DevPortal IA (GKE) et ChatOps Teams (EKS)}}
+\company{n8n, Vertex AI, AWS Bedrock, ArgoCD/Rollouts, Kyverno, AWS IAM, Teams}
+\begin{pubul}{8.19pt}{11.19pt}{9.90pt}
+  \item \textbf{DevPortal IA} : demande en langage naturel traduite en blueprint validé (jamais de YAML libre), rendu Helm/Kustomize, dry-run Kyverno, expiration automatique des environnements éphémères.
+  \item \textbf{ChatOps Teams} : bot Teams (modes plan/execute), plan sans effet de bord issu d’une safelist versionnée, exécution après \textbf{approbation humaine}, audit append-only, canary avec rollback automatique.
+\end{pubul}
+\jobend
 
-\cventry{2024}{TendOlive RFP Intelligence}{Challenge CSTAM 3.0}{}{}{
-  Pipeline automatisé qui collecte les appels d'offres publics, vérifie chaque exigence avec un RAG sur la base de connaissances et génère le deck de proposition.
-  \newline
-  \textbf{Stack :} n8n · RAG · LLM · Firecrawl · JavaScript
-  \newline
-  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/TendOlive}
-}
+\jobrowsolo{\textbf{SignBridge : traduction dialecte tunisien $\leftrightarrow$ langue des signes}}
+\company{Azure AKS, ACR, FastAPI, STT/TTS, BiLSTM, MediaPipe}
+\begin{pubul}{8.19pt}{11.19pt}{9.90pt}
+  \item Développement d'une solution IA inclusive sur AKS : Speech-to-Text $\rightarrow$ Langue des Signes et Langue des Signes $\rightarrow$ Text-to-Speech en temps réel via une architecture microservices.
+\end{pubul}
 
-\cventry{2023}{SignBridge}{Projet Académique}{}{}{
-  Plateforme basée sur l'IA assurant la traduction bidirectionnelle entre le dialecte tunisien et la langue des signes tunisienne.
-  \newline
-  \textbf{Stack :} BiLSTM · Mediapipe · TTS · STT · Python
-  \newline
-  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/SignBridge}
-}
+\end{minipage}}
 
-% ================================
-% EXPÉRIENCE PROFESSIONNELLE
-% ================================
-\section{Expérience Professionnelle}
+% ---------------- SIDEBAR ----------------
+\sbox{\sidebox}{\begin{minipage}[t]{58.72mm}\raggedright
 
-\cventry{Juil--Sep 2024}{DevOps \& MLOps Engineer}{LAMBDA Lab - FSS}{Sfax, Tunisie}{}{
-  \begin{itemize}
-    \item Déploiement d'une plateforme Kubeflow multi-tenant sur Proxmox avec IaC (Terraform, Ansible)
-    \item Mise en place de GitOps avec ArgoCD et gestion du stockage distribué (Longhorn)
-    \item Développement d'un portail self-service FastAPI pour l'onboarding des utilisateurs
-    \item Formation de l'équipe aux workflows MLOps et pipelines Elyra
-  \end{itemize}
-}
+\SH{Compétences}
+\sk{Cloud \& orchestration}{Kubernetes, Docker, Helm, Kubeflow, KServe, MLflow, Proxmox, Longhorn, AWS (EKS), Azure (AKS), GCP (GKE)}
+\sk{IaC \& CI/CD}{Terraform, Ansible, ArgoCD, GitHub Actions, Jenkins}
+\sk{Observabilité \& sécurité}{Prometheus, Grafana, OpenTelemetry, Trivy, SonarQube, Vault, Kyverno}
+\sk{IA Générative \& Agentic AI}{LangChain, LangGraph, n8n, CrewAI, RAG, MCP, Vector Databases (ChromaDB), Prompt Engineering, LLM Orchestration, AI Agents, Multi-Agent Systems}
+\sk{Réseau}{Istio, VPC, VPN/IPSec, DNS, Load Balancing}
+\sk{Langages \& frameworks}{Python, Bash, SQL, Java · FastAPI, Django, Spring Boot}
+\sk{Méthodes}{GitOps, MLOps, DataOps, DevSecOps, LLMOps, Agile/Scrum}
+\sidesep
 
-\cventry{Mar--Mai 2024}{DataOps \& DevOps Intern}{InovareTech}{Sfax, Tunisie}{}{
-  \begin{itemize}
-    \item Automatisation du déploiement de clusters Hadoop avec Vagrant et Ansible
-    \item Mise en place de pipelines CI/CD avec Jenkins, Docker et ArgoCD
-    \item Configuration de l'observabilité avec Prometheus et Grafana
-    \item Implémentation de politiques de sécurité Kyverno
-  \end{itemize}
-}
+\SH{Certifications}
+\begin{pubul}{7.86pt}{11.02pt}{9.08pt}
+  \item Certified Kubernetes Administrator (CKA, Linux Foundation) – en préparation
+  \item NVIDIA Fundamentals of Deep Learning
+\end{pubul}
+\sidesep
 
-% ================================
-% FORMATION
-% ================================
-\section{Formation}
+\SH{Langues}
+\begin{pubul}{7.86pt}{11.02pt}{9.08pt}
+  \item Arabe (langue maternelle)
+  \item Français (C1)
+  \item Anglais (B2, Cambridge FCE)
+  \item Allemand (A2)
+\end{pubul}
+\sidesep
 
-\cventry{2022--2027}{Diplôme d'Ingénieur en Data Engineering}{Faculté des Sciences de Sfax}{Tunisie}{}{
-  \textbf{Spécialisation :} DevOps, Cloud Computing, MLOps, Data Engineering
-}
+\SH{Publications, distinctions \& engagement}
+\begin{pubul}{7.86pt}{11.02pt}{9.08pt}
+  \item \textbf{Publication} : “Dual-Core Defense : A Neuro-Symbolic Generative Framework for Automated Detection of Zero-Day Hardware Vulnerabilities in SoC Designs”, \textbf{IEEE IECON 2026}, Doha (papier accepté).
+  \item \textbf{1er prix}, IEEE WIEACT 4.0 Challenge ; 2e prix, IEEE PESTGM 7.0 (congrès nationaux).
+  \item \textbf{Programmation compétitive} : IEEEXtreme 18, 19 \& 20 ; TCPC 2023 \& 2024.
+  \item \textbf{Président}, IEEE CIS FSS (2025–2026) ; \textbf{Responsable RH}, GDSC FSS (2024–2025) ; \textbf{Trésorier}, IEEE FSS SB (2024–2025).
+\end{pubul}
+\sidesep
 
-\cventry{2020--2022}{Classes Préparatoires MPSI/MP}{Lycée Pilote de Sfax}{Tunisie}{}{
-  Mathématiques, Physique, Sciences de l'Ingénieur
-}
+\SH{Centres d’intérêt}
+\begin{pubul}{7.86pt}{11.02pt}{9.08pt}
+  \item Échecs
+  \item Padel
+  \item Football
+  \item Camping
+\end{pubul}
 
-% ================================
-% PUBLICATIONS \& DISTINCTIONS
-% ================================
-\section{Publications \& Distinctions}
+\end{minipage}}
 
-\cvitem{2026}{\textbf{IEEE IECON 2026 Author} - Article scientifique accepté sur l'IA agentic appliquée à l'aquaponie durable}
+% ---------------- Assemble: main | divider | sidebar ----------------
+\newlength{\mh}\newlength{\md}
+\setlength{\mh}{\ht\mainbox}\ifdim\ht\sidebox>\mh\setlength{\mh}{\ht\sidebox}\fi
+\setlength{\md}{\dp\mainbox}\ifdim\dp\sidebox>\md\setlength{\md}{\dp\sidebox}\fi
 
-\cvitem{2024}{\textbf{CSTAM 3.0 Challenge} - Finaliste avec TendOlive (automatisation d'appels d'offres par IA)}
-
-\cvitem{2023}{\textbf{IEEE TSYP13 Challenge} - Projet Aqura AI (plateforme d'aquaponie pilotée par la voix)}
-
-% ================================
-% LANGUES
-% ================================
-\section{Langues}
-
-\cvitemwithcomment{Arabe}{Langue maternelle}{}
-\cvitemwithcomment{Français}{Courant (C1)}{}
-\cvitemwithcomment{Anglais}{Courant (C1)}{}
-
-% ================================
-% CERTIFICATIONS (Optional)
-% ================================
-% \section{Certifications}
-% \cvitem{2024}{Certified Kubernetes Administrator (CKA) - En préparation}
-% \cvitem{2024}{HashiCorp Certified: Terraform Associate - En préparation}
+\noindent\usebox{\mainbox}%
+\hspace{3.57mm}%
+{\color{linec}\rule[-\md]{0.75pt}{\dimexpr\mh+\md\relax}}%
+\hspace{3.57mm}%
+\usebox{\sidebox}
 
 \end{document}

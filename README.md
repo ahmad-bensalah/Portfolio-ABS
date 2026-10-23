@@ -1,150 +1,193 @@
-<h1 align="center">Ahmed Bensalah — Portfolio</h1>
+# 🚀 Ahmad Bensalah - DevOps Portfolio
 
-<p align="center">
-  Personal portfolio of <strong>Ahmed Bensalah</strong>, Data Engineering student specialized in DevOps, data pipelines, and agentic AI.<br/>
-  Bilingual (🇬🇧 EN / 🇫🇷 FR) · Dark & Light mode · Fully responsive
-</p>
+> Infrastructure engineer building the platforms that power data and AI systems.
 
-<p align="center">
-  <img src="https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/Vite-6-646CFF?logo=vite&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/TailwindCSS-3-06B6D4?logo=tailwindcss&logoColor=white&style=flat-square" />
-  <img src="https://img.shields.io/badge/Maintained-yes-22c55e?style=flat-square" />
-  <img src="https://img.shields.io/badge/License-MIT-blue?style=flat-square" />
-</p>
+[![Live Portfolio](https://img.shields.io/badge/Portfolio-Live-success?style=for-the-badge)](https://ahmad-bensalah.pages.dev)
+[![GitHub](https://img.shields.io/badge/GitHub-ahmad--bensalah-blue?style=for-the-badge&logo=github)](https://github.com/ahmad-bensalah)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://linkedin.com/in/ahmad-bensalah)
 
 ---
 
 ## ✨ Features
 
-- 🌍 **Bilingual** — seamless English / French language switch with a single click
-- 🌗 **Dark / Light mode** — smooth theme transitions with CSS variables
-- ⚡ **Framer Motion** — fluid section animations and micro-interactions
-- 📄 **CV download** — language-aware (EN PDF / FR PDF)
-- 🗂️ **Data-driven projects** — edit [`src/data/projects.txt`](src/data/projects.txt) to update all project cards instantly, no code needed
-- ⭐ **Featured badge** — mark projects as featured with `featured: yes`
-- 📺 **Demo links** — YouTube icon appears automatically for demo URLs
-- 📱 **Fully responsive** — mobile-first layout with bottom nav bar on small screens
-- 🎨 **Custom scrollbar** — thin blue accent bar matching the design system
+- 🌐 **Bilingual** (English/French) with seamless switching
+- 🌗 **Dark/Light mode** with theme persistence
+- 📱 **Fully responsive** design for all devices
+- ⚡ **Blazing fast** - built with Vite + React + TypeScript
+- 🎨 **Modern UI** with Framer Motion animations
+- 🔍 **SEO optimized** for Google rankings
+- 💼 **4 featured projects** with detailed descriptions
+- 📄 **Downloadable CVs** in both languages
+- 🖥️ **Terminal mode** with interactive commands
 
 ---
 
-## 🗂️ Project Structure
-
-```
-portfolio-abs/
-├── public/
-│   ├── assets/          # Logo, avatar photos
-│   ├── icons/           # Favicon & PWA icons
-│   ├── CV_Devops-en.pdf # English CV
-│   └── CV_Devops-fr.pdf # French CV
-├── src/
-│   ├── components/      # Navbar, Background, BottomNavBar, ...
-│   ├── context/         # PortfolioContext (lang + theme state)
-│   ├── data/
-│   │   ├── projects.txt # ← Edit this to update project cards
-│   │   ├── parseProjects.ts
-│   │   └── userData.ts  # Personal info, skills, translations
-│   ├── pages/           # About, Projects, Skills, Contact, ...
-│   ├── sections/        # Hero section
-│   ├── terminal/        # Terminal easter-egg mode
-│   ├── App.tsx
-│   ├── main.tsx
-│   └── index.css
-├── index.html
-├── vite.config.ts
-├── tailwind.config.js
-└── package.json
-```
-
----
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
-
-- [Node.js](https://nodejs.org/) ≥ 18
-- npm ≥ 9
+- Node.js v16+ ([Download](https://nodejs.org/))
 
 ### Installation
 
 ```bash
-# Clone the repo
+# Clone the repository
 git clone https://github.com/ahmad-bensalah/Portfolio-ABS.git
 cd Portfolio-ABS
 
 # Install dependencies
 npm install
 
-# Start dev server
+# Start development server
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) in your browser.
 
-### Build for production
+### Build for Production
 
 ```bash
-npm run build      # outputs to dist/
-npm run preview    # preview the production build locally
+npm run build
+# Output: dist/ folder ready for deployment
 ```
 
 ---
 
-## ✏️ Customising Content
+## 📂 Project Structure
 
-### Update your projects
-
-Open [`src/data/projects.txt`](src/data/projects.txt) and edit, add, or remove `[PROJECT]` blocks:
-
-```ini
-[PROJECT]
-category: DevOps
-featured: yes          # shows a ⭐ badge on the card
-tech: Docker, Kubernetes, Python
-github: https://github.com/you/your-repo
-demo:                  # YouTube link → shows YouTube icon automatically
-name_en: My Project
-desc_en: Short English description.
-name_fr: Mon Projet
-desc_fr: Courte description en français.
+```
+Portfolio-ABS/
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/             # Main pages (Home, Projects, Skills, etc.)
+│   ├── data/
+│   │   ├── projects.txt   # All projects (single source of truth)
+│   │   ├── parseProjects.ts  # Projects parser
+│   │   └── userData.ts    # Personal info, skills, experience
+│   ├── terminal/          # Terminal mode implementation
+│   └── context/           # React context (language, theme)
+│
+├── public/
+│   ├── portf_cv_fr.pdf    # French CV
+│   ├── portf_cv_en.pdf    # English CV
+│   ├── sitemap.xml        # SEO sitemap
+│   ├── robots.txt         # Crawler rules
+│   └── assets/            # Images, logos, icons
+│
+├── cv/                    # LaTeX CV source files
+│   ├── CV_Ahmad_Bensalah_FR.tex
+│   ├── CV_Ahmad_Bensalah_EN.tex
+│   └── README.md          # CV compilation guide
+│
+├── docs/                  # 📚 Documentation
+│   ├── seo/               # SEO guides & strategy
+│   ├── deployment/        # Deployment guides
+│   └── guides/            # Quick start & tutorials
+│
+└── scripts/               # Utility scripts
 ```
 
-No code changes needed — the site re-reads this file on every build.
+---
 
-### Update personal info & translations
+## ⚙️ Customization
 
-Edit [`src/data/userData.ts`](src/data/userData.ts) — it contains your name, roles, about text, skills, contact links, and all UI translations.
+### Edit Projects
 
-### Swap your CV
+All projects are managed in **`src/data/projects.txt`**:
 
-Replace the files in `public/`:
-- `CV_Devops-en.pdf` — downloaded when language is English
-- `CV_Devops-fr.pdf` — downloaded when language is French
+```text
+[PROJECT]
+category: DevOps & Cloud
+featured: yes
+tech: Kubernetes, Terraform, Ansible
+github: https://github.com/ahmad-bensalah/project-name
+demo: https://demo-url.com
+name_en: Project Name
+desc_en: Project description in English
+name_fr: Nom du Projet
+desc_fr: Description du projet en français
+```
+
+- Set `featured: yes` to highlight projects with ⭐ badge
+- Changes auto-reflect across the entire site
+
+### Update Personal Info
+
+Edit **`src/data/userData.ts`** to update:
+- Personal information (name, email, phone, socials)
+- Skills & tech stack
+- Experience & education
+- About section
+
+### Replace CVs
+
+Update CV files in `/cv/` directory:
+
+```bash
+cd cv/
+./compile.sh  # Compiles .tex files to PDF
+```
+
+Or manually replace files in `/public/`:
+- `portf_cv_fr.pdf` (French)
+- `portf_cv_en.pdf` (English)
+
+---
+
+## 📚 Documentation
+
+**Comprehensive documentation is available in the [`docs/`](docs/) folder:**
+
+| Documentation | Description |
+|---------------|-------------|
+| **[Project Summary](docs/PROJECT-SUMMARY.md)** | Complete overview & status |
+| **[Quick Start Guide](docs/guides/QUICK-START.md)** | Detailed setup instructions |
+| **[Deployment Guide](docs/deployment/DEPLOYMENT.md)** | Cloudflare Pages deployment |
+| **[SEO Checklist](docs/seo/SEO-CHECKLIST.md)** | SEO optimization tasks |
+| **[Acceleration Plan](docs/seo/ACCELERATION-PLAN.md)** | Strategy to rank #1 on Google |
+| **[CV Documentation](cv/README.md)** | CV compilation & customization |
+
+**📖 [Browse all documentation →](docs/)**
 
 ---
 
 ## 🛠️ Tech Stack
 
-| Layer | Technology |
-|---|---|
-| Framework | React 18 + TypeScript |
-| Build tool | Vite 6 |
-| Styling | Tailwind CSS 3 + Vanilla CSS |
-| Animations | Framer Motion |
-| Icons | Lucide React |
-| Routing | React Router DOM v6 |
-| Type animation | react-type-animation |
+- **Framework:** React + TypeScript + Vite
+- **Styling:** TailwindCSS
+- **Animations:** Framer Motion
+- **Icons:** Lucide React
+- **Deployment:** Cloudflare Pages
+- **CV:** LaTeX (ModernCV)
+
+---
+
+## 🌐 Live Demo
+
+**Portfolio:** [https://ahmad-bensalah.pages.dev](https://ahmad-bensalah.pages.dev)
+
+**CVs:**
+- 🇫🇷 [French CV](https://ahmad-bensalah.pages.dev/portf_cv_fr.pdf)
+- 🇬🇧 [English CV](https://ahmad-bensalah.pages.dev/portf_cv_en.pdf)
+
+---
+
+## 📞 Contact
+
+**Ahmad Bensalah**  
+📧 ahmad.bensalah.contact@gmail.com  
+🔗 [LinkedIn](https://linkedin.com/in/ahmad-bensalah)  
+💻 [GitHub](https://github.com/ahmad-bensalah)  
+🌐 [Portfolio](https://ahmad-bensalah.pages.dev)
+
+📍 Seeking **6-month PFE internship** starting **February 2027**  
+💼 **DevOps • Platform Engineering • MLOps**
 
 ---
 
 ## 📄 License
 
-This project is open source under the [MIT License](LICENSE).
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-<p align="center">
-  Made with ❤️ by <a href="https://github.com/ahmad-bensalah">Ahmed Bensalah</a>
-</p>
+**Made with ❤️ by Ahmad Bensalah**
