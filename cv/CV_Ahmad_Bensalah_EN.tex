@@ -1,0 +1,170 @@
+% Ahmad Bensalah - DevOps Engineer CV (English)
+% Compile with: pdflatex CV_Ahmad_Bensalah_EN.tex
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% ModernCV theme
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+% Character encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+% Adjust page margins
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{3cm}
+
+% Personal data
+\name{Ahmad}{Bensalah}
+\title{DevOps \& Platform Engineering}
+\phone[mobile]{+216~XX~XXX~XXX}
+\email{ahmad.bensalah.contact@gmail.com}
+\social[linkedin]{ahmad-bensalah}
+\social[github]{ahmad-bensalah}
+\homepage{portfolio-abs.pages.dev}
+\extrainfo{Available: February 2027 (6-month internship)}
+
+\begin{document}
+
+\makecvtitle
+
+% ================================
+% PROFILE
+% ================================
+\section{Profile}
+\small
+Data Engineering student at FSS (Tunisia), graduating in 2027, seeking a \textbf{6-month internship starting February 2027} in \textbf{DevOps, Platform Engineering, or MLOps}.
+
+I build the \textbf{infrastructure that powers data and AI systems}. Specialized in \textbf{Linux, Kubernetes, and cloud-native automation} with \textbf{Infrastructure as Code, GitOps, and DevSecOps}. Experience deploying \textbf{multi-tenant MLOps platforms} and building AI agents for operations automation. IEEE IECON 2026 author.
+
+% ================================
+% TECHNICAL SKILLS
+% ================================
+\section{Technical Skills}
+
+\cvitem{\textbf{Cloud \& Orchestration}}{
+  \textbullet~Kubernetes · Docker · Proxmox · Azure · GCP
+}
+
+\cvitem{\textbf{IaC \& CI/CD}}{
+  \textbullet~Terraform · Ansible · Helm · ArgoCD · GitLab CI · OpenTofu · Apache CloudStack
+}
+
+\cvitem{\textbf{MLOps \& Agentic AI}}{
+  \textbullet~KServe · MLflow · LangChain · LangGraph · n8n
+}
+
+\cvitem{\textbf{DataOps \& Data Eng.}}{
+  \textbullet~Airflow · Kafka · Apache Iceberg · Hive · Trino
+}
+
+\cvitem{\textbf{Observability \& Security}}{
+  \textbullet~Prometheus · Grafana · OpenTelemetry · Istio · Kyverno · Vault · Harbor · Trivy
+}
+
+\cvitem{\textbf{Languages \& Frameworks}}{
+  \textbullet~Python · Bash · SQL · Django · Angular · Java
+}
+
+% ================================
+% FEATURED PROJECTS
+% ================================
+\section{Featured Projects}
+
+\cventry{2024}{KubeOlive MLOps Platform}{LAMBDA Lab}{}{}{
+  Self-hosted Charmed Kubeflow MLOps platform on Proxmox VE, automated with Terraform and Ansible, with Longhorn storage, GitLab OIDC multi-tenancy, per-user MinIO isolation and Elyra visual pipelines.
+  \newline
+  \textbf{Stack:} Kubeflow · MicroK8s · Terraform · Ansible · Proxmox · Longhorn · MinIO · FastAPI
+  \newline
+  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/KubeOlive}
+}
+
+\cventry{2024}{DevAIPortal}{Personal Project}{}{}{
+  Conversational Internal Developer Platform that turns plain-language requests into validated Kubernetes environments via GitOps, Helm blueprints and Kyverno-enforced TTL expiry.
+  \newline
+  \textbf{Stack:} Kubernetes · Helm · ArgoCD · Kyverno · LLM · TypeScript
+  \newline
+  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/DevAIPortal}
+}
+
+\cventry{2024}{TendOlive RFP Intelligence}{CSTAM 3.0 Challenge}{}{}{
+  Automated tender pipeline that collects public RFPs, matches each requirement against company evidence with RAG, and drafts the proposal deck.
+  \newline
+  \textbf{Stack:} n8n · RAG · LLM · Firecrawl · JavaScript
+  \newline
+  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/TendOlive}
+}
+
+\cventry{2023}{SignBridge}{Academic Project}{}{}{
+  AI-driven platform enabling two-way translation between Tunisian Dialect and Tunisian Sign Language.
+  \newline
+  \textbf{Stack:} BiLSTM · Mediapipe · TTS · STT · Python
+  \newline
+  \textbf{GitHub:} \url{https://github.com/ahmad-bensalah/SignBridge}
+}
+
+% ================================
+% PROFESSIONAL EXPERIENCE
+% ================================
+\section{Professional Experience}
+
+\cventry{Jul--Sep 2024}{DevOps \& MLOps Engineer}{LAMBDA Lab - FSS}{Sfax, Tunisia}{}{
+  \begin{itemize}
+    \item Deployed multi-tenant Kubeflow platform on Proxmox with IaC (Terraform, Ansible)
+    \item Implemented GitOps workflows with ArgoCD and distributed storage management (Longhorn)
+    \item Built FastAPI self-service portal for automated user onboarding
+    \item Trained team on MLOps workflows and Elyra pipeline development
+  \end{itemize}
+}
+
+\cventry{Mar--May 2024}{DataOps \& DevOps Intern}{InovareTech}{Sfax, Tunisia}{}{
+  \begin{itemize}
+    \item Automated Hadoop cluster deployment with Vagrant and Ansible
+    \item Built CI/CD pipelines with Jenkins, Docker, and ArgoCD
+    \item Configured observability stack with Prometheus and Grafana
+    \item Implemented Kyverno policy enforcement for cluster security
+  \end{itemize}
+}
+
+% ================================
+% EDUCATION
+% ================================
+\section{Education}
+
+\cventry{2022--2027}{Engineering Degree in Data Engineering}{Faculty of Sciences of Sfax}{Tunisia}{}{
+  \textbf{Specialization:} DevOps, Cloud Computing, MLOps, Data Engineering
+}
+
+\cventry{2020--2022}{Preparatory Classes MPSI/MP}{Lycée Pilote de Sfax}{Tunisia}{}{
+  Mathematics, Physics, Engineering Sciences
+}
+
+% ================================
+% PUBLICATIONS \& AWARDS
+% ================================
+\section{Publications \& Awards}
+
+\cvitem{2026}{\textbf{IEEE IECON 2026 Author} - Accepted paper on agentic AI for sustainable aquaponics}
+
+\cvitem{2024}{\textbf{CSTAM 3.0 Challenge Finalist} - TendOlive (AI-powered RFP automation)}
+
+\cvitem{2023}{\textbf{IEEE TSYP13 Challenge} - Aqura AI (voice-first aquaponics platform)}
+
+% ================================
+% LANGUAGES
+% ================================
+\section{Languages}
+
+\cvitemwithcomment{Arabic}{Native}{}
+\cvitemwithcomment{French}{Fluent (C1)}{}
+\cvitemwithcomment{English}{Fluent (C1)}{}
+
+% ================================
+% CERTIFICATIONS (Optional)
+% ================================
+% \section{Certifications}
+% \cvitem{2024}{Certified Kubernetes Administrator (CKA) - In Progress}
+% \cvitem{2024}{HashiCorp Certified: Terraform Associate - In Progress}
+
+\end{document}

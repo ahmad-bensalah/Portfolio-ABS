@@ -1,0 +1,171 @@
+% Ahmad Bensalah - CV DevOps Engineer (French)
+% Compile with: pdflatex CV_Ahmad_Bensalah_FR.tex
+
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% ModernCV theme
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+% Character encoding
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+% Adjust page margins
+\usepackage[scale=0.85]{geometry}
+\setlength{\hintscolumnwidth}{3cm}
+
+% Personal data
+\name{Ahmad}{Bensalah}
+\title{Ingénieur DevOps \& Platform Engineering}
+\phone[mobile]{+216~XX~XXX~XXX}
+\email{ahmad.bensalah.contact@gmail.com}
+\social[linkedin]{ahmad-bensalah}
+\social[github]{ahmad-bensalah}
+\homepage{portfolio-abs.pages.dev}
+\extrainfo{Disponible : Février 2027 (PFE 6 mois)}
+
+\begin{document}
+
+\makecvtitle
+
+% ================================
+% PROFIL
+% ================================
+\section{Profil}
+\small
+Étudiant ingénieur en \textbf{Data Engineering} à la FSS, diplômé prévu en 2027, à la recherche d'un \textbf{PFE de 6 mois à partir de février 2027} en \textbf{DevOps, Platform Engineering ou MLOps}.
+
+Je construis les \textbf{infrastructures sur lesquelles reposent les systèmes de données et d'IA}. Spécialisé en \textbf{Linux, Kubernetes et automatisation cloud-native} avec \textbf{Infrastructure as Code, GitOps et DevSecOps}. Expérience dans le déploiement de plateformes \textbf{MLOps multi-tenant} et la conception d'agents IA pour l'automatisation des opérations. Auteur IEEE IECON 2026.
+
+% ================================
+% COMPÉTENCES TECHNIQUES
+% ================================
+\section{Compétences Techniques}
+
+\cvitem{\textbf{Cloud \& Orchestration}}{
+  \textbullet~Kubernetes · Docker · Proxmox · Azure · GCP
+}
+
+\cvitem{\textbf{IaC \& CI/CD}}{
+  \textbullet~Terraform · Ansible · Helm · ArgoCD · GitLab CI · OpenTofu · Apache CloudStack
+}
+
+\cvitem{\textbf{MLOps \& IA Agentic}}{
+  \textbullet~KServe · MLflow · LangChain · LangGraph · n8n
+}
+
+\cvitem{\textbf{DataOps \& Data Eng.}}{
+  \textbullet~Airflow · Kafka · Apache Iceberg · Hive · Trino
+}
+
+\cvitem{\textbf{Observabilité \& Sécurité}}{
+  \textbullet~Prometheus · Grafana · OpenTelemetry · Istio · Kyverno · Vault · Harbor · Trivy
+}
+
+\cvitem{\textbf{Langages \& Frameworks}}{
+  \textbullet~Python · Bash · SQL · Django · Angular · Java
+}
+
+% ================================
+% PROJETS PHARES
+% ================================
+\section{Projets Phares}
+
+\cventry{2024}{KubeOlive MLOps Platform}{LAMBDA Lab}{}{}{
+  Plateforme MLOps Charmed Kubeflow auto-hébergée sur Proxmox VE, automatisée avec Terraform et Ansible, avec stockage Longhorn, multi-tenant via GitLab OIDC, isolation MinIO par utilisateur et pipelines visuels Elyra.
+  \newline
+  \textbf{Stack :} Kubeflow · MicroK8s · Terraform · Ansible · Proxmox · Longhorn · MinIO · FastAPI
+  \newline
+  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/KubeOlive}
+}
+
+\cventry{2024}{DevAIPortal}{Projet Personnel}{}{}{
+  Plateforme développeur interne conversationnelle qui transforme des demandes en langage naturel en environnements Kubernetes validés via GitOps, blueprints Helm et expiration automatique gérée par Kyverno.
+  \newline
+  \textbf{Stack :} Kubernetes · Helm · ArgoCD · Kyverno · LLM · TypeScript
+  \newline
+  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/DevAIPortal}
+}
+
+\cventry{2024}{TendOlive RFP Intelligence}{Challenge CSTAM 3.0}{}{}{
+  Pipeline automatisé qui collecte les appels d'offres publics, vérifie chaque exigence avec un RAG sur la base de connaissances et génère le deck de proposition.
+  \newline
+  \textbf{Stack :} n8n · RAG · LLM · Firecrawl · JavaScript
+  \newline
+  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/TendOlive}
+}
+
+\cventry{2023}{SignBridge}{Projet Académique}{}{}{
+  Plateforme basée sur l'IA assurant la traduction bidirectionnelle entre le dialecte tunisien et la langue des signes tunisienne.
+  \newline
+  \textbf{Stack :} BiLSTM · Mediapipe · TTS · STT · Python
+  \newline
+  \textbf{GitHub :} \url{https://github.com/ahmad-bensalah/SignBridge}
+}
+
+% ================================
+% EXPÉRIENCE PROFESSIONNELLE
+% ================================
+\section{Expérience Professionnelle}
+
+\cventry{Juil--Sep 2024}{DevOps \& MLOps Engineer}{LAMBDA Lab - FSS}{Sfax, Tunisie}{}{
+  \begin{itemize}
+    \item Déploiement d'une plateforme Kubeflow multi-tenant sur Proxmox avec IaC (Terraform, Ansible)
+    \item Mise en place de GitOps avec ArgoCD et gestion du stockage distribué (Longhorn)
+    \item Développement d'un portail self-service FastAPI pour l'onboarding des utilisateurs
+    \item Formation de l'équipe aux workflows MLOps et pipelines Elyra
+  \end{itemize}
+}
+
+\cventry{Mar--Mai 2024}{DataOps \& DevOps Intern}{InovareTech}{Sfax, Tunisie}{}{
+  \begin{itemize}
+    \item Automatisation du déploiement de clusters Hadoop avec Vagrant et Ansible
+    \item Mise en place de pipelines CI/CD avec Jenkins, Docker et ArgoCD
+    \item Configuration de l'observabilité avec Prometheus et Grafana
+    \item Implémentation de politiques de sécurité Kyverno
+  \end{itemize}
+}
+
+% ================================
+% FORMATION
+% ================================
+\section{Formation}
+
+\cventry{2022--2027}{Diplôme d'Ingénieur en Data Engineering}{Faculté des Sciences de Sfax}{Tunisie}{}{
+  \textbf{Spécialisation :} DevOps, Cloud Computing, MLOps, Data Engineering
+}
+
+\cventry{2020--2022}{Classes Préparatoires MPSI/MP}{Lycée Pilote de Sfax}{Tunisie}{}{
+  Mathématiques, Physique, Sciences de l'Ingénieur
+}
+
+% ================================
+% PUBLICATIONS \& DISTINCTIONS
+% ================================
+\section{Publications \& Distinctions}
+
+\cvitem{2026}{\textbf{IEEE IECON 2026 Author} - Article scientifique accepté sur l'IA agentic appliquée à l'aquaponie durable}
+
+\cvitem{2024}{\textbf{CSTAM 3.0 Challenge} - Finaliste avec TendOlive (automatisation d'appels d'offres par IA)}
+
+\cvitem{2023}{\textbf{IEEE TSYP13 Challenge} - Projet Aqura AI (plateforme d'aquaponie pilotée par la voix)}
+
+% ================================
+% LANGUES
+% ================================
+\section{Langues}
+
+\cvitemwithcomment{Arabe}{Langue maternelle}{}
+\cvitemwithcomment{Français}{Courant (C1)}{}
+\cvitemwithcomment{Anglais}{Courant (C1)}{}
+
+% ================================
+% CERTIFICATIONS (Optional)
+% ================================
+% \section{Certifications}
+% \cvitem{2024}{Certified Kubernetes Administrator (CKA) - En préparation}
+% \cvitem{2024}{HashiCorp Certified: Terraform Associate - En préparation}
+
+\end{document}
